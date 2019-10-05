@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div style="">
     <!--<h1 >{{ msg }}</h1>-->
     <br>
     <el-form :model="admin" status-icon :rules="rules" ref="admin" label-width="100px" style="width: 40%;margin: auto" >
       <el-form-item label="昵称" prop="aName" style="text-align: left">
-        <el-input type="text" name="aName" v-model="admin.aName" style="width: 340px" placeholder="用户名/邮箱/手机号"></el-input>
+        <el-input type="text" name="aName" v-model="admin.aName" style="width: 350px" placeholder="用户名/邮箱/手机号"></el-input>
       </el-form-item><br>
       <el-form-item label="密码" prop="aPassword" style="text-align: left">
-        <el-input type="aPassword" password="aPassword" v-model="admin.aPassword" style="width: 340px" placeholder="请输入密码"></el-input>
+        <el-input type="aPassword" password="aPassword" v-model="admin.aPassword" style="width: 350px" placeholder="请输入密码"></el-input>
       </el-form-item><br>
-      <el-row style="margin-right: 80px">
+      <el-row style="margin-right: 10px">
         <el-button type="primary" plain @click="login()" style="width: 80px">确认</el-button>
         <el-button type="primary" plain @click="resetForm('admin')" style="width: 80px">重置</el-button>
         <el-button type="primary" plain @click="reback()" style="width: 80px">返回</el-button>

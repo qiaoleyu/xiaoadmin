@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <img src="./assets/logo1.jpg" style="width: 250px;height: 150px">
+
     <h1>{{msg}}</h1>
+    <img src="./assets/logo1.jpg" style="width: 250px;height: 150px">
     <router-view/>
   </div>
 </template>
@@ -11,7 +12,7 @@ export default {
   name: 'App',
   data(){
     return{
-      msg:'Welcome to 小米 后台管理页面'
+      msg:'Welcome to 后台管理页面'
     }
   }
 
@@ -25,6 +26,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 </style>
