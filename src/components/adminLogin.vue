@@ -1,6 +1,6 @@
 <template>
-  <div style="">
-    <!--<h1 >{{ msg }}</h1>-->
+  <div style="margin-top: 150px">
+    <h1 style="font-weight: bolder;margin-bottom: 30px">{{ msg }}</h1>
     <br>
     <el-form :model="admin" status-icon :rules="rules" ref="admin" label-width="100px" style="width: 40%;margin: auto" >
       <el-form-item label="昵称" prop="aName" style="text-align: left">
@@ -41,7 +41,7 @@
       }
     };
     return {
-      msg: '登录',
+      msg: 'Welcome to 后台登录界面',
       admin:{
           aId:'',
         aName:'',

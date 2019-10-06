@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <!--<h1>{{msg}}</h1>-->
+  <div class="hello" style="margin-top: 200px">
+    <h1 style="font-weight: bolder">{{msg}}</h1>
     <br>
     <br>
     <el-button type="primary" plain @click="login()" style="width: 100px">登录</el-button>
@@ -52,7 +52,7 @@ export default {
   name: 'index',
   data () {
     return {
-      msg: 'Welcome to 小米 后台管理页面',
+      msg: 'Welcome to 后台管理页面',
       activeIndex: '1',
       activeIndex2: '1'
     }

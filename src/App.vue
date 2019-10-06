@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <h1>{{msg}}</h1>
-    <img src="./assets/logo1.jpg" style="width: 250px;height: 150px">
+    <!--<h1>{{msg}}</h1>-->
+    <!--<img src="./assets/logo1.jpg" style="width: 250px;height: 150px">-->
     <router-view/>
   </div>
 </template>
@@ -26,6 +26,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 50px;
+  margin-top: 0px;
 }
 </style>
