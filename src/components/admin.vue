@@ -101,7 +101,7 @@
                 </template>
                 <el-menu-item-group>
                   <span slot="title">类别管理</span>
-                  <el-menu-item index="3-1" class="el-icon-document">查看</el-menu-item>
+                  <el-menu-item index="3-1" class="el-icon-document" @click="findAllKinds()">查看</el-menu-item>
                   <el-menu-item index="3-2" class="el-icon-circle-plus">添加</el-menu-item>
                   <el-menu-item index="3-3" class="el-icon-edit">修改</el-menu-item>
                   <el-menu-item index="3-4" class="el-icon-delete">删除</el-menu-item>
@@ -253,6 +253,9 @@
             isCollapse: true
           }
       },methods:{
+      findAllKinds:function () {
+        this.$router.push()
+      },
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
