@@ -2,6 +2,18 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
 
+
+      <el-select v-model="value" placeholder="请选择">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
+
+
+
     <el-table :data="shops" stripe style="width: 100%;">
       <el-table-column prop="shopId" label="商品编号" width="80"> </el-table-column>
 
@@ -18,7 +30,9 @@
       <el-table-column prop="productTime" label="生产日期" width="100"></el-table-column>
       <el-table-column prop="factory" label="生产厂家" width="100"></el-table-column>
       <el-table-column prop="shopInfo" label="商品详情描述"></el-table-column>
-      <el-table-column prop="skId" label="商品类别"></el-table-column>
+      <el-table-column prop="skId" label="商品类别">
+        <span>{{countList}}</span>
+      </el-table-column>
       <el-table-column label="操作" width="180">
         <el-button-group slot-scope="scope">
           <el-button type="primary" plain icon="el-icon-edit" @click="toupdate(scope.row.shopId)"></el-button>
@@ -52,6 +66,7 @@
       return {
         msg: '用户展示',
         shops:[],
+        shopKinds:[],
         total:0,
         params:{
           size:8,
@@ -63,6 +78,21 @@
     mounted(){
       this.query();
 
+    },computed: {
+      countList: function () {
+        var a = '';
+        for (let i = 0; i < this.shops.length; i++) {
+          for (let j = 0; j < this.shopKinds.length; j++) {
+            if (this.shops[i].skId == this.shopKinds[j].skId) {
+
+              a = this.shopKinds[j].skName;
+
+            }
+          }
+          this.shops[i].skId = a;
+        }
+        return a
+      }
     },
     methods:{
       toinsert:function () {
@@ -102,6 +132,7 @@
         axios.get(url).then(res => {
           this.shops = res.data.list;
           this.total=res.data.total;
+          this.shopKinds=res.data.shopKindsList;
         })
       }
     }

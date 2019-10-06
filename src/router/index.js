@@ -5,6 +5,7 @@ import adminLogin from '@/components/adminLogin'
 import admin from '@/components/admin'
 import shops from '@/components/shops'
 import addShops from '@/components/addShops'
+import updateShops from '@/components/updateShops'
 import showKinds from '@/components/showKinds'
 import addShopKinds from '@/components/addShopKinds'
 import updateShopKinds from '@/components/updateShopKinds'
@@ -34,6 +35,10 @@ export default new Router({
       name: 'addShops',
       component: addShops
       },{
+      path: '/updateShops/:shopId',
+      name: 'updateShops',
+      component: updateShops
+    },{
       path: '/showKinds',
       name: 'showKinds',
       component: showKinds

@@ -31,19 +31,11 @@
         </el-input>
       </el-form-item>
       <el-form-item label="商品类别">
-        <el-select v-model="shop.skId" placeholder="请选择" style="width: 40%;margin-right: 400px">
-          <el-option
-            v-for="item in shopKinds"
-            :key="item.skId"
-            :label="item.skName"
-            :value="item.skId">
-          </el-option>
-        </el-select>
-        <!--<el-input v-model="shop.skId" name="skId" style="width: 40%;margin-right: 400px">
-        </el-input>-->
+        <el-input v-model="shop.skId" name="skId" style="width: 40%;margin-right: 400px">
+        </el-input>
       </el-form-item>
       <el-row style="margin-right: 70px">
-        <el-button type="primary" plain @click="addShops()">确认</el-button>
+        <el-button type="primary" plain @click="updateShops()">确认</el-button>
       </el-row>
     </el-form>
 
@@ -56,21 +48,21 @@
   export default{
     data(){
       return{
-        msg: '新增商品',
+        msg: '修改商品',
         file:'',
         shop:{
 
         },
-        shopKinds:[],
-//        skId:'',
         disabledDate(time) {
           return time.getTime() > Date.now();
         }
       }
-    },mounted(){
-      var url = "api/findAllKinds/"+1+"/"+10;
-      axios.get(url).then(res => {
-          this.shopKinds = res.data.list;
+    },
+    mounted:function () {
+      var shopId=this.$route.params.shopId;
+//      alert(shopId)
+      axios.get("/api/findShopsById/"+shopId).then(res=>{
+        this.shop=res.data;
       })
     },
     methods:{
@@ -78,33 +70,12 @@
         this.file = event.target.files[0];
         console.log(this.file);
       },
-
-      /*submit: function (event) {
-        //阻止元素发生默认的行为
-        event.preventDefault();
+      updateShops:function () {
         let formData = new FormData();
         formData.append("file", this.file);
-        axios.post('api/upload', formData).then(function (r) {
-          alert(r.data);
-          window.location.reload();
-        })
-          .catch(function (error) {
-            alert("上传失败");
-            console.log(error);
-            window.location.reload();
-          });
-      },*/
-
-      addShops:function () {
-        let formData = new FormData();
-        formData.append("file", this.file);
-        axios.post("/api/addShops",{shops:this.shop,file:formData}).then(res=>{
-          window.location.reload();
-          if(res.data!=null){
+        axios.post("/api/updateShops",{shops:this.shop,file:formData}).then(r=>{
+          if (r.data!=null){
             this.$router.push('/shops');
-          }
-          else {
-            alert("新增失败");
           }
         })
       }
