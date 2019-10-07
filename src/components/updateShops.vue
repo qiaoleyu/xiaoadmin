@@ -2,7 +2,13 @@
 
   <div class="hello">
     <h1>{{ msg }}</h1>
-
+    <span style="margin-left: 350px">商品小图:</span>
+    <input type="file" @change="getFile($event)"></input>
+    <el-button plain @click="upload()"  style="margin-right: 400px">上传</el-button>
+    <br><br>
+    <span style="margin-left: 350px">商品大图:</span>
+    <input type="file" @change="getFile($event)"></input>
+    <el-button plain @click="upload2()" style="margin-right: 400px">上传</el-button>
     <el-radio-group size="small">
     </el-radio-group>
     <div style="margin: 20px;"></div>
@@ -10,8 +16,11 @@
       <el-form-item label="商品名称">
         <el-input class="arrow" name="shopName" v-model="shop.shopName" style="width: 40%;margin-right: 400px"></el-input>
       </el-form-item>
-      <el-form-item label="图片">
-        <input type="file" @change="getFile($event)" style="width: 40%;margin-right: 400px"></input>
+      <el-form-item label="商品小图">
+        <img :src="shop.shopPic" v-model="shop.shopPic" name="shopPic" width="40" height="40" class="pic" style="margin-right: 400px"/>
+      </el-form-item>
+      <el-form-item label="商品大图">
+        <img :src="shop.shopBigPic" v-model="shop.shopBigPic" name="shop.shopBigPic" width="40" height="40" class="pic" style="margin-right: 400px"/>
       </el-form-item>
       <el-form-item label="商品单价">
         <el-input name="shopPrice" v-model="shop.shopPrice" style="width: 40%;margin-right: 400px"></el-input>
@@ -31,8 +40,20 @@
         </el-input>
       </el-form-item>
       <el-form-item label="商品类别">
-        <el-input v-model="shop.skId" name="skId" style="width: 40%;margin-right: 400px">
-        </el-input>
+        <el-select v-model="shop.skId" name="skId" placeholder="请选择" style="width: 40%;margin-right: 400px">
+          <div  v-for="(shopKinds,index) in shopKinds">
+            <span v-if="shop.skId==shopKinds.skId">{{shopKinds.skName}}</span>
+          </div>
+          <el-option
+            v-for="item in shopKinds"
+            :key="item.skId"
+            :label="item.skName"
+            :value="item.skId">
+          </el-option>
+        </el-select>
+        <!--<el-input v-model="shop.skId" name="skId" style="width: 40%;margin-right: 400px">
+          <span>{{shopKind}}</span>
+        </el-input>-->
       </el-form-item>
       <el-row style="margin-right: 70px">
         <el-button type="primary" plain @click="updateShops()">确认</el-button>
@@ -53,27 +74,66 @@
         shop:{
 
         },
+        shopKinds:[],
         disabledDate(time) {
           return time.getTime() > Date.now();
         }
       }
     },
     mounted:function () {
-      var shopId=this.$route.params.shopId;
-//      alert(shopId)
-      axios.get("/api/findShopsById/"+shopId).then(res=>{
-        this.shop=res.data;
-      })
+      this.query2();
+      this.query();
     },
+
     methods:{
+        query2:function () {
+          var shopId=this.$route.params.shopId;
+//      alert(shopId)
+          axios.get("/api/findShopsById/"+shopId).then(res=>{
+            this.shop=res.data;
+          })
+        },
+      query:function () {
+        axios.get("api/show1").then(res => {
+          this.shopKinds = res.data;
+        })
+      },
       getFile: function (event) {
         this.file = event.target.files[0];
         console.log(this.file);
       },
-      updateShops:function () {
+      upload:function () {
         let formData = new FormData();
         formData.append("file", this.file);
-        axios.post("/api/updateShops",{shops:this.shop,file:formData}).then(r=>{
+        axios.post("/api/upload",formData).then(res=>{
+          //window.location.reload();
+          console.log(res.data)
+          if(res.data!="fail"){
+            this.shop.shopPic=res.data;
+//            alert(this.shop.shopPic)
+          }
+          else {
+            alert(res.data);
+          }
+        })
+      },
+      upload2:function () {
+        let formData = new FormData();
+        formData.append("file", this.file);
+        axios.post("/api/upload",formData).then(res=>{
+          //window.location.reload();
+          console.log(res.data)
+          if(res.data!="fail"){
+            this.shop.shopBigPic=res.data;
+//            alert(this.shop.shopBigPic)
+          }
+          else {
+            alert(res.data);
+          }
+        })
+      },
+      updateShops:function () {
+        axios.post("/api/updateShops",this.shop).then(r=>{
           if (r.data!=null){
             this.$router.push('/shops');
           }

@@ -31,7 +31,12 @@
       <el-table-column prop="factory" label="生产厂家" width="100"></el-table-column>
       <el-table-column prop="shopInfo" label="商品详情描述"></el-table-column>
       <el-table-column prop="skId" label="商品类别">
-        <span>{{countList}}</span>
+        <template slot-scope="scope">
+          <div  v-for="(shopKinds,index) in shopKinds">
+            <span v-if="scope.row.skId==shopKinds.skId">{{shopKinds.skName}}</span>
+          </div>
+        </template>
+
       </el-table-column>
       <el-table-column label="操作" width="180">
         <el-button-group slot-scope="scope">
@@ -78,21 +83,6 @@
     mounted(){
       this.query();
 
-    },computed: {
-      countList: function () {
-        var a = '';
-        for (let i = 0; i < this.shops.length; i++) {
-          for (let j = 0; j < this.shopKinds.length; j++) {
-            if (this.shops[i].skId == this.shopKinds[j].skId) {
-
-              a = this.shopKinds[j].skName;
-
-            }
-          }
-          this.shops[i].skId = a;
-        }
-        return a
-      }
     },
     methods:{
       toinsert:function () {
