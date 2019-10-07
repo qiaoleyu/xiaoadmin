@@ -32,10 +32,10 @@
         <el-input class="arrow" name="shopName" v-model="shop.shopName" style="width: 40%;margin-right: 400px"></el-input>
       </el-form-item>
       <el-form-item label="商品小图">
-        <el-input v-model="shop.shopPic" name="shopPic" style="width: 40%;margin-right: 400px"></el-input>
+        <img :src="shop.shopPic" v-model="shop.shopPic" name="shopPic" width="40" height="40" class="pic" style="margin-right: 400px"/>
       </el-form-item>
       <el-form-item label="商品大图">
-        <el-input v-model="shop.shopBigPic" name="shopBigPic" style="width: 40%;margin-right: 400px"></el-input>
+        <img :src="shop.shopBigPic" v-model="shop.shopBigPic" name="shop.shopBigPic" width="40" height="40" class="pic" style="margin-right: 400px"/>
       </el-form-item>
       <el-form-item label="商品单价">
         <el-input name="shopPrice" v-model="shop.shopPrice" style="width: 40%;margin-right: 400px"></el-input>
