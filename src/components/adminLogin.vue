@@ -4,7 +4,7 @@
     <br>
     <el-form :model="admin" status-icon :rules="rules" ref="admin" label-width="100px" style="width: 40%;margin: auto" >
       <el-form-item label="昵称" prop="aName" style="text-align: left">
-        <el-input type="text" name="aName" v-model="admin.aName" style="width: 350px" placeholder="用户名/邮箱/手机号"></el-input>
+        <el-input type="text" name="aName" v-model="admin.aName" style="width: 350px" placeholder="请输入用户名"></el-input>
       </el-form-item><br>
       <el-form-item label="密码" prop="aPassword" style="text-align: left">
         <el-input type="aPassword" password="aPassword" v-model="admin.aPassword" style="width: 350px" placeholder="请输入密码"></el-input>
