@@ -2,7 +2,7 @@
   <div class="hello" style="width: 100%;margin: auto">
 
      <div style="width: 800px;;height: 80px;margin: auto">
-       <div style="float: left;width: 200px;height: 80px">
+       <div style="float: left;width: 200px;height: 80px;line-height: 50px">
          <h1 style="text-align: left">{{ msg }}</h1>
        </div>
        <div style="float: left;width: 600px;height: 80px;line-height: 90px">
@@ -61,10 +61,6 @@
                    :total="total" :current-page="this.params.page"></el-pagination>
 
     <el-row style="height: 20px"></el-row>
-
-    <el-row>
-      <el-button type="primary" plain @click="toinsert()">新增</el-button>
-    </el-row>
 
   </div>
 </template>
