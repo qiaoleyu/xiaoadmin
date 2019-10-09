@@ -92,12 +92,12 @@
           page:1,
         },
         options: [{
-          value: 'shopNmae',
+          value: 'shopName',
           label: '商品名称'
-        },/* {
+        }, /*{
           value: 'shopPrice',
           label: '商品价格'
-        }*/, {
+        },*/ {
           value: 'shopInfo',
           label: '商品描述'
         }, /*{
@@ -123,7 +123,8 @@
           console.log(this.value);
           axios.post("api/findByValues/"+this.params.page+"/"+this.params.size,{value:this.value,name:this.input}).then(res=>{
               if (res.data!=null){
-                  this.shops=res.data;
+                this.shops = res.data.list;
+                this.total=res.data.total;
               }else {
                   alert("无此类商品")
               }
