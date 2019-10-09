@@ -23,7 +23,7 @@
             <el-menu-item index="/admin">首页</el-menu-item>
             <el-menu-item index="/">用户管理</el-menu-item>
             <el-menu-item index="/shops">商品管理</el-menu-item>
-            <el-menu-item index="/">类别管理</el-menu-item>
+            <el-menu-item index="/showKinds">类别管理</el-menu-item>
           </el-menu>
         </el-breadcrumb>
 
