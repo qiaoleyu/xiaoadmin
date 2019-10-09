@@ -27,14 +27,12 @@ export default new Router({
       name: 'admin',
       component: admin,
       children:[
-        {path: '/shops', name: 'shops', component: shops},
-        {path: '/shops', name: 'shops', component: shops},
-        {path: '/addShops', name: 'addShops', component: addShops},
-        {path: '/addShops', name: 'addShops', component: addShops},
-        {path: '/updateShops/:shopId', name: 'updateShops', component: updateShops},
-        {path: '/showKinds', name: 'showKinds', component: showKinds},
-        {path: '/addShopKinds', name: 'addShopKinds', component: addShopKinds},
-        {path: '/updateShopKinds/:skId', name: 'updateShopKinds', component: updateShopKinds}
+        {path: '/shops', name: '商品管理', component: shops},
+        {path: '/addShops', name: '添加商品', component: addShops},
+        {path: '/updateShops/:shopId', name: '修改商品', component: updateShops},
+        {path: '/showKinds', name: '类别管理', component: showKinds},
+        {path: '/addShopKinds', name: '添加类别', component: addShopKinds},
+        {path: '/updateShopKinds/:skId', name: '修改类别 ', component: updateShopKinds}
       ]
     }
   ]

@@ -1,14 +1,17 @@
 <template>
 
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <span style="margin-left: 350px">商品小图:</span>
-    <input type="file" @change="getFile($event)"></input>
-    <el-button plain @click="upload()"  style="margin-right: 400px">上传</el-button>
-    <br><br>
-    <span style="margin-left: 350px">商品大图:</span>
-    <input type="file" @change="getFile($event)"></input>
-    <el-button plain @click="upload2()" style="margin-right: 400px">上传</el-button>
+    <div style="width: 600px;margin: auto;height: 40px">
+      <div style="width: 100px;margin: auto;float: left">商品小图:</div>
+      <div style="width: 400px;margin: auto;float: left"><input type="file" @change="getFile($event)"></div>
+      <div style="width: 100px;margin: auto;float: left"><el-button plain @click="upload()"  style="width: 80px">上传</el-button></div>
+    </div>
+
+    <div style="width: 600px;margin: auto;height: 40px">
+      <div style="width: 100px;margin: auto;float: left">商品大图:</div>
+      <div style="width: 400px;margin: auto;float: left"><input type="file" @change="getFile($event)"></div>
+      <div style="width: 100px;margin: auto;float: left"><el-button plain @click="upload2()" style="width: 80px">上传</el-button></div>
+    </div>
 
     <el-radio-group size="small">
     </el-radio-group>
@@ -67,7 +70,6 @@
     components: {ElInput},
     data(){
       return{
-        msg: '新增商品',
         file:'',
         shop:{
             shopPic:'',

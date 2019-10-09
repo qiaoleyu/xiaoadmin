@@ -1,5 +1,5 @@
 <template>
-  <div class="hello" style="width: 95%;margin: auto">
+  <div class="hello" style="width: 100%;margin: auto">
 
      <div style="width: 800px;;height: 80px;margin: auto">
        <div style="float: left;width: 200px;height: 80px">
