@@ -112,15 +112,12 @@
 
     },
     mounted(){
-      this.queryShops();
       this.queryShopKinds();
-
+        this.queryShops();
     },
     methods:{
 
       search:function () {
-          console.log(this.input);
-          console.log(this.value);
           axios.post("api/findByValues/"+this.params.page+"/"+this.params.size,{value:this.value,name:this.input}).then(res=>{
               if (res.data!=null){
                 this.shops = res.data.list;
