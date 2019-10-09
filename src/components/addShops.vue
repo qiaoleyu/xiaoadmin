@@ -2,20 +2,6 @@
 
   <div class="hello">
     <h1>{{ msg }}</h1>
-
-    <!--<form action="#" method="post" @submit.prevent="submit">
-      商品名称:<input name="shopName" v-model="shop.shopName">
-      图片:<input type="file" @change="getFile($event)" style="width: 40%;margin-right: 400px"></input>
-      商品单价:<input name="shopPrice" v-model="shop.shopPrice">
-      商品库存:<input name="shopRepertory" v-model="shop.shopRepertory">
-      生产日期:<input name="productTime" v-model="shop.productTime" type="date" placeholder="选择日期">
-      生产厂家:<input v-model="shop.factory" name="factory">
-      商品详情描述:<input v-model="shop.shopInfo" name="shopInfo">
-      商品类别:<input name="shopPrice" v-model="shop.shopPrice">
-      商品单价:<input name="shopPrice" v-model="shop.shopPrice">
-      <input type="button" value="确认" @click="addShops()">
-    </form>-->
-
     <span style="margin-left: 350px">商品小图:</span>
     <input type="file" @change="getFile($event)"></input>
     <el-button plain @click="upload()"  style="margin-right: 400px">上传</el-button>

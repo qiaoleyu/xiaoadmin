@@ -3,11 +3,11 @@
     <h1 style="font-weight: bolder;margin-bottom: 30px">{{ msg }}</h1>
     <br>
     <el-form :model="admin" status-icon :rules="rules" ref="admin" label-width="100px" style="width: 40%;margin: auto" >
-      <el-form-item label="昵称" prop="aName" style="text-align: left">
-        <el-input type="text" name="aName" v-model="admin.aName" style="width: 350px" placeholder="用户名/邮箱/手机号"></el-input>
+      <el-form-item label="昵称" prop="aname" style="text-align: left">
+        <el-input type="text" name="aname" v-model="admin.aname" style="width: 350px" placeholder="用户名/邮箱/手机号"></el-input>
       </el-form-item><br>
-      <el-form-item label="密码" prop="aPassword" style="text-align: left">
-        <el-input type="aPassword" password="aPassword" v-model="admin.aPassword" style="width: 350px" placeholder="请输入密码"></el-input>
+      <el-form-item label="密码" prop="apassword" style="text-align: left">
+        <el-input type="Password" password="apassword" v-model="admin.apassword" style="width: 350px" placeholder="请输入密码"></el-input>
       </el-form-item><br>
       <el-row style="margin-right: 10px">
         <el-button type="primary" plain @click="login()" style="width: 80px">确认</el-button>
@@ -43,10 +43,10 @@
     return {
       msg: 'Welcome to 后台登录界面',
       admin:{
-          aId:'',
-        aName:'',
-        aPassword:'',
-        aEmail:''
+//          aId:'',
+        aname:'',
+        apassword:'',
+        aemail:''
       },
       rules: {
         aName: [{ validator: checkName, trigger: 'blur' }],
@@ -60,14 +60,14 @@
               if(valid){
 //                  alert("submit");
                   //获得用户的数据
-                //console.log(this.user.name, this.user.password )
+                console.log(this.admin )
 
                 //发送请求 把参数发给后端（把用户名和密码发给后端 验证是否存在这个账号）
                 axios.post("api/adminLogin", this.admin).then(res=>{
                     //接收后端返回来的数据
-                  if(res.data!=null&&res.data!=''){
+                  if(res.data!=null){
                       alert("登录成功！");
-                      this.$router.push("/adminManager");
+                      this.$router.push("/shops");
                   }else{
                       alert("登录失败");
                       this.$router.push("/adminLogin");
