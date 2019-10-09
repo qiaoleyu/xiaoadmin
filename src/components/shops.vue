@@ -1,16 +1,27 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="hello" style="width: 95%;margin: auto">
 
-
-      <el-select v-model="value" placeholder="请选择">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value">
-        </el-option>
-      </el-select>
+     <div style="width: 800px;;height: 80px;margin: auto">
+       <div style="float: left;width: 200px;height: 80px">
+         <h1 style="text-align: left">{{ msg }}</h1>
+       </div>
+       <div style="float: left;width: 600px;height: 80px;line-height: 90px">
+       <template>
+         <el-select v-model="value" placeholder="请选择">
+           <el-option
+             v-for="item in options"
+             :key="item.value"
+             :label="item.label"
+             :value="item.value">
+           </el-option>
+         </el-select>
+       </template>
+      <el-input type="text" style="width: 200px;height: 40px"
+                v-model="input"></el-input>
+       <el-button plain type="primary" style="width: 80px;height: 40px">查询
+       </el-button>
+       </div>
+     </div>
 
 
 
@@ -62,21 +73,41 @@
   import axios from 'axios'
   import ElRow from "element-ui/packages/row/src/row";
   import ElInput from "../../node_modules/element-ui/packages/input/src/input";
+  import ElButton from "../../node_modules/element-ui/packages/button/src/button";
   export default {
     components: {
+      ElButton,
       ElInput,
       ElRow},
     name: 'shops',
     data (){
       return {
-        msg: '用户展示',
+        input:'',
+        msg: '商品信息展示',
         shops:[],
         shopKinds:[],
         total:0,
         params:{
           size:8,
           page:1,
-        }
+        },
+        options: [{
+          value: 'shopNmae',
+          label: '商品名称'
+        }, {
+          value: 'shopPrice',
+          label: '商品价格'
+        }, {
+          value: 'shopInfo',
+          label: '商品描述'
+        }, {
+          value: 'shopNumber',
+          label: '商品销量'
+        }, {
+          value: 'skNmae',
+          label: '商品类别'
+        }],
+        value: ''
       }
 
     },
