@@ -1,50 +1,48 @@
 <template>
 
   <div class="hello">
-    <div style="width: 600px;margin: auto;height: 40px">
+    <div style="width: 600px;margin: auto;height: 60px;line-height: 40px">
       <div style="width: 100px;margin: auto;float: left">商品小图:</div>
       <div style="width: 400px;margin: auto;float: left"><input type="file" @change="getFile($event)"></div>
       <div style="width: 100px;margin: auto;float: left"><el-button plain @click="upload()"  style="width: 80px">上传</el-button></div>
     </div>
 
-    <div style="width: 600px;margin: auto;height: 40px">
+    <div style="width: 600px;margin: auto;height: 60px;line-height: 40px">
       <div style="width: 100px;margin: auto;float: left">商品大图:</div>
       <div style="width: 400px;margin: auto;float: left"><input type="file" @change="getFile($event)"></div>
       <div style="width: 100px;margin: auto;float: left"><el-button plain @click="upload2()" style="width: 80px">上传</el-button></div>
     </div>
 
-    <el-radio-group size="small">
-    </el-radio-group>
-    <div style="margin: 20px;"></div>
-    <el-form label-width="400px" style="margin-left: 100px">
-      <el-form-item label="商品名称">
-        <el-input class="arrow" name="shopName" v-model="shop.shopName" style="width: 40%;margin-right: 400px"></el-input>
+    <el-form label-width="100px" style="width: 600px;margin: auto;text-align: left">
+
+      <el-form-item label="商品名称:">
+        <el-input class="arrow" name="shopName" v-model="shop.shopName" style="width: 500px"></el-input>
       </el-form-item>
-      <el-form-item label="商品小图">
-        <img :src="shop.shopPic" v-model="shop.shopPic" name="shopPic" width="40" height="40" class="pic" style="margin-right: 400px"/>
+      <el-form-item label="商品小图:">
+        <img :src="shop.shopPic" v-model="shop.shopPic" name="shopPic" width="40" height="40" class="pic"/>
       </el-form-item>
-      <el-form-item label="商品大图">
-        <img :src="shop.shopBigPic" v-model="shop.shopBigPic" name="shop.shopBigPic" width="40" height="40" class="pic" style="margin-right: 400px"/>
+      <el-form-item label="商品大图:">
+        <img :src="shop.shopBigPic" v-model="shop.shopBigPic" name="shop.shopBigPic" width="40" height="40" class="pic"/>
       </el-form-item>
-      <el-form-item label="商品单价">
-        <el-input name="shopPrice" v-model="shop.shopPrice" style="width: 40%;margin-right: 400px"></el-input>
+      <el-form-item label="商品单价:">
+        <el-input name="shopPrice" v-model="shop.shopPrice" style="width: 500px"></el-input>
       </el-form-item>
-      <el-form-item label="商品库存">
-        <el-input name="shopRepertory" v-model="shop.shopRepertory" style="width: 40%;margin-right: 400px"></el-input>
+      <el-form-item label="商品库存:">
+        <el-input name="shopRepertory" v-model="shop.shopRepertory" style="width: 500px"></el-input>
       </el-form-item>
-      <el-form-item label="生产日期">
-        <el-date-picker name="productTime" v-model="shop.productTime" type="date" placeholder="选择日期" style="width: 40%;margin-right: 400px"></el-date-picker>
+      <el-form-item label="生产日期：">
+        <el-date-picker name="productTime" v-model="shop.productTime" type="date" placeholder="选择日期" style="width: 500px"></el-date-picker>
       </el-form-item>
-      <el-form-item label="生产厂家">
-        <el-input v-model="shop.factory" name="factory" style="width: 40%;margin-right: 400px">
+      <el-form-item label="生产厂家：">
+        <el-input v-model="shop.factory" name="factory" style="width: 500px">
         </el-input>
       </el-form-item>
-      <el-form-item label="商品详情描述">
-        <el-input v-model="shop.shopInfo" name="shopInfo" style="width: 40%;margin-right: 400px">
+      <el-form-item label="商品详情描述:">
+        <el-input v-model="shop.shopInfo" name="shopInfo" style="width: 500px">
         </el-input>
       </el-form-item>
-      <el-form-item label="商品类别">
-        <el-select v-model="shop.skId" placeholder="请选择" style="width: 40%;margin-right: 400px">
+      <el-form-item label="商品类别:">
+        <el-select v-model="shop.skId" placeholder="请选择" style="width: 500px">
           <el-option
             v-for="item in shopKinds"
             :key="item.skId"
@@ -55,9 +53,9 @@
         <!--<el-input v-model="shop.skId" name="skId" style="width: 40%;margin-right: 400px">
         </el-input>-->
       </el-form-item>
-      <el-row style="margin-right: 70px">
+      <el-form-item style="height: 60px;width: 200px;margin: auto">
         <el-button type="primary" plain @click="addShops()">确认</el-button>
-      </el-row>
+      </el-form-item>
     </el-form>
   </div>
 </template>

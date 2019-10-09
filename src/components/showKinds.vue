@@ -1,11 +1,8 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div  style="margin-left: 100px">
 
     <el-table :data="shopKinds" stripe style="width: 100%;">
       <el-table-column prop="skId" label="类别编号" width="100"> </el-table-column>
-
-
       <el-table-column prop="skName" label="类别名称" width="130"></el-table-column>
       <el-table-column label="操作" width="180">
         <el-button-group slot-scope="scope">
@@ -15,18 +12,18 @@
       </el-table-column>
     </el-table>
 
-    <el-pagination background layout="prev, pager, next" :page-size="this.params.size" v-on:current-change="changePage"
+    <el-pagination  style="float: left;margin-left: 100px" background layout="prev, pager, next" :page-size="this.params.size" v-on:current-change="changePage"
                    :total="total" :current-page="this.params.page"></el-pagination>
 
     <el-row style="height: 20px"></el-row>
-
-    <el-row>
-      <el-button type="primary" plain @click="toinsert()">新增</el-button>
-    </el-row>
-
   </div>
 </template>
-
+<style>
+  .el-main{
+    background-color: inherit;
+    line-height: inherit;
+  }
+</style>
 <script>
   import axios from 'axios'
   import ElRow from "element-ui/packages/row/src/row";
@@ -53,9 +50,6 @@
 
     },
     methods:{
-      toinsert:function () {
-        this.$router.push('/addShopKinds');
-      },
       toupdate:function (skId) {
         this.$router.push({path:'/updateShopKinds/'+skId})
       },

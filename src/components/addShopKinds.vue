@@ -1,19 +1,13 @@
 <template>
 
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="hello" style="float: left;width: 400px;text-align: left;margin-left: 40px">
+    <h3 style="height: 40px;line-height: 40px;margin-left: 100px">{{ msg }}</h3>
 
-    <el-radio-group size="small">
-    </el-radio-group>
-    <div style="margin: 20px;"></div>
-    <el-form label-width="400px" style="margin-left: 100px">
+    <el-form label-width="100px" style="width: 400px;margin-top: 20px;text-align: left;float: left">
       <el-form-item label="类别名称">
-        <el-input class="arrow" name="skName" v-model="shopKinds.skName" style="width: 40%;margin-right: 400px"></el-input>
+        <div style="width: 200px;float: left"><el-input class="arrow" name="skName" v-model="shopKinds.skName" style="width:200px"></el-input></div>
+        <div style="width: 100px;float: left"><el-button type="primary" plain to="/add" @click="add()">确认</el-button></div>
       </el-form-item>
-
-      <el-row style="margin-right: 70px">
-        <el-button type="primary" plain to="/add" @click="add()">确认</el-button>
-      </el-row>
     </el-form>
 
   </div>
