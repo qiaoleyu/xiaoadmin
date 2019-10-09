@@ -2,12 +2,12 @@
   <div style="margin-top: 150px">
     <h1 style="font-weight: bolder;margin-bottom: 30px">{{ msg }}</h1>
     <br>
-    <el-form :model="admin" status-icon :rules="rules" ref="admin" label-width="100px" style="width: 40%;margin: auto" >
-      <el-form-item label="昵称" prop="aname" style="text-align: left">
-        <el-input type="text" name="aname" v-model="admin.aname" style="width: 350px" placeholder="用户名/邮箱/手机号"></el-input>
+    <el-form status-icon :rules="rules" ref="admin" label-width="100px" style="width: 40%;margin: auto" >
+      <el-form-item label="昵称" prop="loginName" style="text-align: left">
+        <el-input type="text" name="loginName" v-model="loginName" style="width: 350px" placeholder="用户名/邮箱/手机号"></el-input>
       </el-form-item><br>
-      <el-form-item label="密码" prop="apassword" style="text-align: left">
-        <el-input type="Password" password="apassword" v-model="admin.apassword" style="width: 350px" placeholder="请输入密码"></el-input>
+      <el-form-item label="密码" prop="password" style="text-align: left">
+        <el-input type="Password" name="password" v-model="password" style="width: 350px" placeholder="请输入密码"></el-input>
       </el-form-item><br>
       <el-row style="margin-right: 10px">
         <el-button type="primary" plain @click="login()" style="width: 80px">确认</el-button>
@@ -24,18 +24,18 @@
   export default {
   data () {
     var checkName = (rule, value, callback) => {
-      if (!value) {
+      /*if (!value) {
         return callback(new Error('用户名不能为空'));
-      }else{
+      }else{*/
         return callback();
-      }
+//      }
     };
     var validatePass = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('请输入密码'));
       } else {
-        if (this.admin.aPassword !== '') {
-          this.$refs.admin.validateField('aPassword');
+        if (this.password != '') {
+          this.$refs.validateField('aPassword');
         }
         callback();
       }
@@ -48,35 +48,37 @@
         apassword:'',
         aemail:''
       },
+      password:'',
+      loginName:'',
       rules: {
-        aName: [{ validator: checkName, trigger: 'blur' }],
-        aPassword: [{ validator: validatePass, trigger: 'blur' }],
+        loginName: [{ validator: checkName, trigger: 'blur' }],
+        password: [{ validator: validatePass, trigger: 'blur' }],
       }
     }
   },
     methods: {
       login:function () {
-          this.$refs['admin'].validate((valid)=>{
+        /*  this.$refs['admin'].validate((valid)=>{
               if(valid){
 //                  alert("submit");
                   //获得用户的数据
-                console.log(this.admin )
+                console.log(this.admin )*/
 
                 //发送请求 把参数发给后端（把用户名和密码发给后端 验证是否存在这个账号）
-                axios.post("api/adminLogin", this.admin).then(res=>{
+                axios.post("api/adminLogin", {loginName:this.loginName,password:this.password}).then(res=>{
                     //接收后端返回来的数据
-                  if(res.data!=null){
-                      alert("登录成功！");
+                  if(res.data=="success"){
+//                      alert("登录成功！");
                       this.$router.push("/shops");
                   }else{
                       alert("登录失败");
                       this.$router.push("/adminLogin");
                   }
                 })
-              }else{
+             /* }else{
                 return false;
               }
-          })
+          })*/
 //        axios.post('http://localhost/login',{name:this.user.name,password:this.user.password}).then(res => {
 //          if (res.data!= null) {
 //            this.$router.push({name:"userlist"})
