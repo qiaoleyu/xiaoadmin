@@ -18,7 +18,7 @@
        </template>
       <el-input type="text" style="width: 200px;height: 40px"
                 v-model="input"></el-input>
-       <el-button plain type="primary" style="width: 80px;height: 40px">查询
+       <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询
        </el-button>
        </div>
      </div>
@@ -88,30 +88,43 @@
           page:1,
         },
         options: [{
-          value: 'shopNmae',
+          value: 'shopName',
           label: '商品名称'
-        }, {
+        }, /*{
           value: 'shopPrice',
           label: '商品价格'
-        }, {
+        },*/ {
           value: 'shopInfo',
           label: '商品描述'
-        }, {
+        }, /*{
           value: 'shopNumber',
           label: '商品销量'
-        }, {
+        }*//*, {
           value: 'skNmae',
           label: '商品类别'
-        }],
+        }*/],
         value: ''
       }
 
     },
     mounted(){
-      this.query();
-
+      this.queryShopKinds();
+        this.queryShops();
     },
     methods:{
+
+      search:function () {
+          axios.post("api/findByValues/"+this.params.page+"/"+this.params.size,{value:this.value,name:this.input}).then(res=>{
+              if (res.data!=null){
+                this.shops = res.data.list;
+                this.total=res.data.total;
+              }else {
+                  alert("无此类商品")
+              }
+          })
+        },
+
+
       toinsert:function () {
         this.$router.push('/addShops');
       },
@@ -126,7 +139,7 @@
         }).then(() => {
           axios.get("/api/deleteShops/"+shopId).then(res=>{
 
-              this.query();
+            this.queryShops();
 
           })
           this.$message({
@@ -142,14 +155,19 @@
       },
       changePage:function (page) {
         this.params.page=page;
-        this.query()
+        this.queryShops();
       },
-      query:function() {
+      queryShops:function() {
         var url = "api/findAllShops/"+this.params.page+"/"+this.params.size;
         axios.get(url).then(res => {
           this.shops = res.data.list;
           this.total=res.data.total;
-          this.shopKinds=res.data.shopKindsList;
+        })
+      },
+      queryShopKinds:function() {
+        var url = "api/show1";
+        axios.get(url).then(res => {
+          this.shopKinds = res.data;
         })
       }
     }
