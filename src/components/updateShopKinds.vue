@@ -1,23 +1,23 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <el-radio-group size="small">
-    </el-radio-group>
-    <div style="margin: 20px;"></div>
-    <el-form label-width="400px" style="margin-left: 100px">
+  <div class="hello" style="float: left;width: 400px;text-align: left;margin-left: 40px">
+    <h1 style="height: 40px;line-height: 40px;margin-left: 100px">{{ msg }}</h1>
+
+    <el-form label-width="100px" style="width: 400px">
       <el-input type="hidden" v-model="shopKinds.skId" name="skId"></el-input>
       <el-form-item label="类别名称">
-        <el-input class="arrow" name="skName" v-model="shopKinds.skName" style="width: 40%;margin-right: 400px"></el-input>
+        <div style="width: 200px;float: left"><el-input class="arrow" name="skName" v-model="shopKinds.skName" style="width: 200px"></el-input></div>
+        <div style="width: 100px;float: left"><el-button type="primary"  style="width: 100px" plain @click="updateShopKinds()">确认</el-button></div>
       </el-form-item>
-      <el-row style="height: 10px"></el-row>
-      <el-row style="margin-right: 70px">
-        <el-button type="primary" plain @click="updateShopKinds()">确认</el-button>
-      </el-row>
     </el-form>
 
   </div>
 </template>
 
+<style>
+  .el-main{
+    line-height: inherit;
+  }
+</style>
 <script>
   import axios from 'axios';
   import ElInput from "../../node_modules/element-ui/packages/input/src/input";
