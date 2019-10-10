@@ -23,21 +23,21 @@
             <el-menu-item index="/admin">首页</el-menu-item>
             <el-menu-item index="/adminRole">角色管理</el-menu-item>
             <el-menu-item index="/adminShiro">权限管理</el-menu-item>
+            <el-menu-item index="/adminPutong">管理员管理</el-menu-item>
             <el-menu-item index="/shops">商品管理</el-menu-item>
             <el-menu-item index="/showKinds">类别管理</el-menu-item>
           </el-menu>
         </el-breadcrumb>
 
         <div style="width: 400px;text-align: right;float: right;margin-right: 40px">
-          <span style="margin-right: 15px" @click="logout()">退出登录</span>
-       <!-- <el-dropdown>
-        <i class="el-icon-setting" style="margin-right: 15px"></i>
-        <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item class="el-icon-delete" @click="logout()">注销</el-dropdown-item>
-        </el-dropdown-menu>
-        </el-dropdown>-->
-
-        <span class="el-icon-s-custom">{{adminName}}</span>
+          <!--<span style="margin-right: 15px" @click="logout()">退出登录</span>-->
+         <el-dropdown>
+          <i class="el-icon-setting" style="margin-right: 15px;size: 40px"></i>
+          <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item class="el-icon-delete"><span @click="logout()">退出</span></el-dropdown-item>
+          </el-dropdown-menu>
+          </el-dropdown>
+          <span class="el-icon-s-custom">{{adminName}}</span>
         </div>
       </el-header>
 
@@ -142,7 +142,7 @@
         </el-container>
         <!--</el-container>-->
       <!--</el-container>-->
-      <el-footer>小米之家</el-footer>
+      <el-footer>米之家</el-footer>
     </el-container>
   </div>
 </template>
@@ -222,8 +222,10 @@
     },
     methods:{
       logout:function () {
+//          alert()
         Cookies.remove('name'); // fail!
-        this.adminName='未登录'
+//        this.adminName='未登录'
+        this.$router.push("/adminLogin")
       },
       findAllKinds:function () {
         this.$router.push()

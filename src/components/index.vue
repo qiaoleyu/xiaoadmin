@@ -13,8 +13,8 @@
     cursor: pointer;
     color: #409EFF;
   }
-  /*设置全页面背景色*/
-  body{width: 100%;height: 100%;position: relative;background-color: #9ae1e4}
+  /*设置全页面背景色background-color: #9ae1e4*/
+  body{width: 100%;height: 100%;position: relative;}
   .el-icon-arrow-down {
     font-size: 12px;
   }
