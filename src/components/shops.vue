@@ -1,11 +1,11 @@
 <template>
   <div class="hello" style="width: 100%;margin: auto">
 
-     <div style="width: 800px;;height: 80px;margin: auto">
-       <div style="float: left;width: 200px;height: 80px;line-height: 50px">
-         <h1 style="text-align: left">{{ msg }}</h1>
-       </div>
-       <div style="float: left;width: 600px;height: 80px;line-height: 90px">
+     <div style="width: 900px;;height: 80px;margin: auto">
+       <!--<div style="float: left;width: 200px;height: 80px;line-height: 50px">-->
+         <!--<h1 style="text-align: left">{{ msg }}</h1>-->
+       <!--</div>-->
+       <div style="float: left;width: 900px;height: 80px;line-height: 90px">
        <template>
          <el-select v-model="value" placeholder="请选择">
            <el-option
@@ -17,9 +17,20 @@
          </el-select>
        </template>
       <el-input type="text" style="width: 200px;height: 40px"
-                v-model="input"></el-input>
-       <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询
-       </el-button>
+                v-model="input" placeholder="输入要查询内容"></el-input>
+       <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询</el-button>
+         <template>
+           <el-select v-model="value" placeholder="请选择查">
+             <el-option
+               v-for="item in options"
+               :key="item.value"
+               :label="item.label"
+               :value="item.value">
+             </el-option>
+           </el-select>
+         </template>
+         <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询
+         </el-button>
        </div>
      </div>
 
