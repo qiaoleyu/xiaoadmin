@@ -90,19 +90,19 @@
         options: [{
           value: 'shopName',
           label: '商品名称'
-        }, /*{
+        }, {
           value: 'shopPrice',
           label: '商品价格'
-        },*/ {
+        }, {
           value: 'shopInfo',
           label: '商品描述'
-        }, /*{
+        }, {
           value: 'shopNumber',
           label: '商品销量'
-        }*//*, {
+        }, {
           value: 'skNmae',
           label: '商品类别'
-        }*/],
+        }],
         value: ''
       }
 
