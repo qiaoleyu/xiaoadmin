@@ -85,7 +85,7 @@
           })
        },
       toAdd:function () {
-        this.$router.push({name:"addAdmin"})
+        this.$router.push("/addAdmin")
       },
       update:function (id) {
          // alert(id)

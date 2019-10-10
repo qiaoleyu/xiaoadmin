@@ -32,7 +32,7 @@
         <div style="width: 400px;text-align: right;float: right;margin-right: 40px">
           <!--<span style="margin-right: 15px" @click="logout()">退出登录</span>-->
          <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px;size: 40px"></i>
+          <i class="el-icon-setting" style="margin-right: 15px;size: 40px;font-size: 20px"></i>
           <el-dropdown-menu slot="dropdown">
           <el-dropdown-item class="el-icon-delete"><span @click="logout()">退出</span></el-dropdown-item>
           </el-dropdown-menu>
@@ -165,6 +165,7 @@
     color: #333;
     text-align: center;
     line-height: 60px;
+    font-size: 20px;
   }
 
   .el-aside {
