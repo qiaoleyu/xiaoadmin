@@ -20,16 +20,16 @@
                 v-model="input" placeholder="输入要查询内容"></el-input>
        <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询</el-button>
          <template>
-           <el-select v-model="text" placeholder="请选择查">
+           <el-select v-model="name" placeholder="请选择查">
              <el-option
-               v-for="item in option"
-               :key="item.text"
-               :label="item.name"
-               :value="item.text">
+               v-for="item in orderBy"
+               :key="item.name"
+               :label="item.info"
+               :value="item.name">
              </el-option>
            </el-select>
          </template>
-         <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询
+         <el-button plain type="primary" style="width: 80px;height: 40px" @click="orderShops()">排序
          </el-button>
        </div>
      </div>
@@ -76,11 +76,6 @@
   </div>
 </template>
 
-<style>
-  .el-main{
-    line-height: inherit;
-  }
-</style>
 <script>
   import axios from 'axios'
   import ElRow from "element-ui/packages/row/src/row";
@@ -103,40 +98,25 @@
           size:8,
           page:1,
         },
+        orderBy:[{
+          name: 'shopPrice',
+          info: '商品价格'
+          }, {
+          name: 'shopNumber',
+          info: '商品销量'
+          }, {
+          name: 'skName',
+          info: '商品类别'
+          }],
         options: [{
           value: 'shopName',
           label: '商品名称'
         }, {
-          value: 'shopPrice',
-          label: '商品价格'
-        }, {
           value: 'shopInfo',
           label: '商品描述'
-        }, {
-          value: 'shopNumber',
-          label: '商品销量'
-        }, {
-          value: 'skNmae',
-          label: '商品类别'
         }],
         value: '',
-        option: [{
-        text: 'shopName',
-        name: '商品名称'
-      }, {
-        text: 'shopPrice',
-        name: '商品价格'
-      }, {
-        text: 'shopInfo',
-        name: '商品描述'
-      }, {
-        text: 'shopNumber',
-        name: '商品销量'
-      }, {
-        text: 'skNmae',
-        name: '商品类别'
-      }],
-        text: ''
+        name:''
       }
 
     },
@@ -156,7 +136,18 @@
               }
           })
         },
+      orderShops:function () {
+          console.log(this.name);
+        axios.post("api/orderShops/"+this.params.page+"/"+this.params.size+"/"+this.name).then(res=>{
+            if (res.data!=null){
+              this.shops = res.data.list;
+              this.total=res.data.total;
+            }else {
+              alert("无此类商品")
+            }
+        })
 
+      },
 
       toinsert:function () {
         this.$router.push('/addShops');
@@ -190,7 +181,9 @@
         this.params.page=page;
         if (this.value!=''&& this.input!=''){
           this.search();
-        }else {
+        }if (this.name!='') {
+            this.orderShops();
+        }else{
           this.queryShops();
         }
       },
