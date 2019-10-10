@@ -12,6 +12,9 @@ import updateShopKinds from '@/components/updateShopKinds'
 import administrator from '@/components/administrator'
 import updateAdmin from '@/components/updateAdmin'
 import addAdmin from '@/components/addAdmin'
+import role from '@/components/role'
+import addRole from '@/components/addRole'
+import updateRole from '@/components/updateRole'
 
 
 Vue.use(Router)
@@ -41,6 +44,9 @@ export default new Router({
         {path: '/addShopKinds', name: '添加类别', component: addShopKinds},
         {path: '/updateShopKinds/:skId', name: '修改类别 ', component: updateShopKinds},
       ]
-    }
+    },
+    {path:'/role',name:'role',component:role},
+    {path:'/addRole',name:'addRole',component:addRole},
+    {path:'/updateRole/:id',name:'addRole',component:updateRole}
   ]
 })
