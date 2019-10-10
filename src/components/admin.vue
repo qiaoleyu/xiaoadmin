@@ -28,13 +28,15 @@
         </el-breadcrumb>
 
         <div style="width: 400px;text-align: right;float: right;margin-right: 40px">
-        <el-dropdown>
+          <span style="margin-right: 15px" @click="logout()">退出登录</span>
+       <!-- <el-dropdown>
         <i class="el-icon-setting" style="margin-right: 15px"></i>
         <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item class="el-icon-delete">注销</el-dropdown-item>
+        <el-dropdown-item class="el-icon-delete" @click="logout()">注销</el-dropdown-item>
         </el-dropdown-menu>
-        </el-dropdown>
-        <span class="el-icon-s-custom">王小虎</span>
+        </el-dropdown>-->
+
+        <span class="el-icon-s-custom">{{adminName}}</span>
         </div>
       </el-header>
 
@@ -200,6 +202,8 @@
   import axios from 'axios'
   import ElFooter from "../../node_modules/element-ui/packages/footer/src/main";
   import ElRadioButton from "../../node_modules/element-ui/packages/radio/src/radio-button";
+  import Cookies from 'js-cookie'
+
   export default{
     components: {
       ElRadioButton,
@@ -208,9 +212,23 @@
           return{
               msg:'Welcome to 后台管理界面',
             tabPosition: 'left',
-            isCollapse: false
+            isCollapse: false,
+            adminName:'未登录'
           }
-      },methods:{
+      },mounted(){
+       var an= Cookies.get('name');
+       alert(an)
+      this.adminName=an
+      console.log(this.adminName)
+    },
+    methods:{
+      logout:function () {
+        Cookies.remove('name'); // fail!
+        this.adminName='未登录'
+        //Cookies.remove('aname', { path: '/admin' });
+//        Cookies.remove('aname');
+//          Cookies.remove('aname',{path:'/admin'})
+      },
       findAllKinds:function () {
         this.$router.push()
       },

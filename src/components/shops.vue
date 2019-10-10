@@ -155,7 +155,11 @@
       },
       changePage:function (page) {
         this.params.page=page;
-        this.queryShops();
+        if (this.value!=''&& this.input!=''){
+          this.search();
+        }else {
+          this.queryShops();
+        }
       },
       queryShops:function() {
         var url = "api/findAllShops/"+this.params.page+"/"+this.params.size;
