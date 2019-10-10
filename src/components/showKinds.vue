@@ -1,5 +1,5 @@
 <template>
-  <div  style="margin-left: 100px">
+  <div  style="">
 
     <el-table :data="shopKinds" stripe style="width: 100%;">
       <el-table-column prop="skId" label="类别编号" width="100"> </el-table-column>
@@ -20,7 +20,7 @@
 </template>
 <style>
   .el-main{
-    background-color: inherit;
+    /*background-color: inherit;*/
     line-height: inherit;
   }
 </style>

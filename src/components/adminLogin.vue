@@ -17,7 +17,11 @@
     </el-form>
   </div>
 </template>
-
+<style>
+  body{
+    background-color: aquamarine;
+  }
+</style>
 <script>
   import axios from 'axios'
   import Cookies from 'js-cookie'
