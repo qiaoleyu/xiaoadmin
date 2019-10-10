@@ -20,12 +20,12 @@
                 v-model="input" placeholder="输入要查询内容"></el-input>
        <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询</el-button>
          <template>
-           <el-select v-model="value" placeholder="请选择查">
+           <el-select v-model="text" placeholder="请选择查">
              <el-option
-               v-for="item in options"
-               :key="item.value"
-               :label="item.label"
-               :value="item.value">
+               v-for="item in option"
+               :key="item.text"
+               :label="item.name"
+               :value="item.text">
              </el-option>
            </el-select>
          </template>
@@ -76,6 +76,11 @@
   </div>
 </template>
 
+<style>
+  .el-main{
+    line-height: inherit;
+  }
+</style>
 <script>
   import axios from 'axios'
   import ElRow from "element-ui/packages/row/src/row";
@@ -114,7 +119,24 @@
           value: 'skNmae',
           label: '商品类别'
         }],
-        value: ''
+        value: '',
+        option: [{
+        text: 'shopName',
+        name: '商品名称'
+      }, {
+        text: 'shopPrice',
+        name: '商品价格'
+      }, {
+        text: 'shopInfo',
+        name: '商品描述'
+      }, {
+        text: 'shopNumber',
+        name: '商品销量'
+      }, {
+        text: 'skNmae',
+        name: '商品类别'
+      }],
+        text: ''
       }
 
     },

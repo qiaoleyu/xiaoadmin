@@ -142,7 +142,7 @@
         </el-container>
         <!--</el-container>-->
       <!--</el-container>-->
-      <el-footer>米之家</el-footer>
+      <el-footer style="font-weight: bolder">米之家</el-footer>
     </el-container>
   </div>
 </template>
