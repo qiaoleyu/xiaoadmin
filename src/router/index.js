@@ -12,7 +12,9 @@ import updateShopKinds from '@/components/updateShopKinds'
 import administrator from '@/components/administrator'
 import updateAdmin from '@/components/updateAdmin'
 import addAdmin from '@/components/addAdmin'
-
+import permission from '@/components/permission'
+import addPermission from '@/components/addPermission'
+import updatePermission from '@/components/updatePermission'
 
 Vue.use(Router)
 
@@ -41,6 +43,18 @@ export default new Router({
         {path: '/addShopKinds', name: '添加类别', component: addShopKinds},
         {path: '/updateShopKinds/:skId', name: '修改类别 ', component: updateShopKinds},
       ]
+    },{
+      path: '/permission',
+      name: 'permission',
+      component: permission
+    },{
+      path: '/addPermission',
+      name: 'addPermission',
+      component: addPermission
+    },{
+      path: '/updatePermission/:pid',
+      name: 'updatePermission',
+      component: updatePermission
     }
   ]
 })
