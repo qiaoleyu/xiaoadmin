@@ -17,9 +17,14 @@
     </el-form>
   </div>
 </template>
-
+<style>
+  body{
+    background-color: aquamarine;
+  }
+</style>
 <script>
   import axios from 'axios'
+  import Cookies from 'js-cookie'
 
   export default {
   data () {
@@ -69,6 +74,9 @@
                     //接收后端返回来的数据
                   if(res.data=="success"){
 //                      alert("登录成功！");
+//                    alert(this.admin.aname);
+                    Cookies.set('name',this.loginName,{ expires: 7, path: '/' });
+
                       this.$router.push("/shops");
                   }else{
                       alert("登录失败");

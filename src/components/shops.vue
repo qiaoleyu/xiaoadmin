@@ -1,11 +1,11 @@
 <template>
   <div class="hello" style="width: 100%;margin: auto">
 
-     <div style="width: 800px;;height: 80px;margin: auto">
-       <div style="float: left;width: 200px;height: 80px;line-height: 50px">
-         <h1 style="text-align: left">{{ msg }}</h1>
-       </div>
-       <div style="float: left;width: 600px;height: 80px;line-height: 90px">
+     <div style="width: 900px;;height: 80px;margin: auto">
+       <!--<div style="float: left;width: 200px;height: 80px;line-height: 50px">-->
+         <!--<h1 style="text-align: left">{{ msg }}</h1>-->
+       <!--</div>-->
+       <div style="float: left;width: 900px;height: 80px;line-height: 90px">
        <template>
          <el-select v-model="value" placeholder="请选择">
            <el-option
@@ -17,9 +17,20 @@
          </el-select>
        </template>
       <el-input type="text" style="width: 200px;height: 40px"
-                v-model="input"></el-input>
-       <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询
-       </el-button>
+                v-model="input" placeholder="输入要查询内容"></el-input>
+       <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询</el-button>
+         <template>
+           <el-select v-model="name" placeholder="请选择">
+             <el-option
+               v-for="item in orderBy"
+               :key="item.name"
+               :label="item.info"
+               :value="item.name">
+             </el-option>
+           </el-select>
+         </template>
+         <el-button plain type="primary" style="width: 80px;height: 40px" @click="orderShops()">排序
+         </el-button>
        </div>
      </div>
 
@@ -64,6 +75,12 @@
   </div>
 </template>
 
+<style>
+  .el-main{
+    /*background-color: inherit;*/
+    line-height: inherit;
+  }
+</style>
 <script>
   import axios from 'axios'
   import ElRow from "element-ui/packages/row/src/row";
@@ -86,23 +103,25 @@
           size:8,
           page:1,
         },
+        orderBy:[{
+          name: 'shopPrice',
+          info: '商品价格'
+          }, {
+          name: 'shopNumber',
+          info: '商品销量'
+          }, {
+          name: 'skName',
+          info: '商品类别'
+          }],
         options: [{
           value: 'shopName',
           label: '商品名称'
-        }, /*{
-          value: 'shopPrice',
-          label: '商品价格'
-        },*/ {
+        }, {
           value: 'shopInfo',
           label: '商品描述'
-        }, /*{
-          value: 'shopNumber',
-          label: '商品销量'
-        }*//*, {
-          value: 'skNmae',
-          label: '商品类别'
-        }*/],
-        value: ''
+        }],
+        value: '',
+        name:''
       }
 
     },
@@ -122,7 +141,18 @@
               }
           })
         },
+      orderShops:function () {
+          console.log(this.name);
+        axios.post("api/orderShops/"+this.params.page+"/"+this.params.size+"/"+this.name).then(res=>{
+            if (res.data!=null){
+              this.shops = res.data.list;
+              this.total=res.data.total;
+            }else {
+              alert("无此类商品")
+            }
+        })
 
+      },
 
       toinsert:function () {
         this.$router.push('/addShops');
@@ -154,7 +184,13 @@
       },
       changePage:function (page) {
         this.params.page=page;
-        this.queryShops();
+        if (this.value!=''&& this.input!=''){
+          this.search();
+        }else if (this.name!='') {
+            this.orderShops();
+        }else{
+          this.queryShops();
+        }
       },
       queryShops:function() {
         var url = "api/findAllShops/"+this.params.page+"/"+this.params.size;

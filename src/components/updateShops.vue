@@ -4,13 +4,13 @@
     <div style="width: 600px;margin: auto;height: 60px;line-height: 40px">
       <div style="width: 100px;margin: auto;float: left">商品小图:</div>
       <div style="width: 400px;margin: auto;float: left"><input type="file" @change="getFile($event)"></div>
-      <div style="width: 100px;margin: auto;float: left"><el-button plain @click="upload()"  style="width: 80px">上传</el-button></div>
+      <div style="width: 100px;margin: auto;float: left"><el-button type="primary" round plain @click="upload()"  style="width: 100px">上传</el-button></div>
     </div>
 
     <div style="width: 600px;margin: auto;height: 60px;line-height: 40px">
       <div style="width: 100px;margin: auto;float: left">商品大图:</div>
       <div style="width: 400px;margin: auto;float: left"><input type="file" @change="getFile($event)"></div>
-      <div style="width: 100px;margin: auto;float: left"><el-button plain @click="upload2()" style="width: 80px">上传</el-button></div>
+      <div style="width: 100px;margin: auto;float: left"><el-button type="primary" round plain @click="upload2()" style="width: 100px">上传</el-button></div>
     </div>
 
     <el-form label-width="100px" style="width: 600px;margin: auto;text-align: left">
@@ -57,7 +57,7 @@
         </el-input>-->
       </el-form-item>
       <el-form-item style="height: 60px;width: 200px;margin: auto">
-        <el-button type="primary" plain @click="updateShops()">确认</el-button>
+        <el-button type="primary" round plain style="width: 100px" @click="updateShops()">确认</el-button>
       </el-form-item>
     </el-form>
 
