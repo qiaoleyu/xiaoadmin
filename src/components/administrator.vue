@@ -10,7 +10,7 @@
       <el-table-column align="center"
                        prop="aid"
                        label="管理员编号"
-                       width="140">
+                       width="100">
       </el-table-column>
       <el-table-column align="center"
                        prop="aname"
@@ -57,7 +57,11 @@
 
       </div>
 </template>
-
+<style>
+  .el-main{
+    line-height: inherit;
+  }
+</style>
 <script>
   import axios from 'axios'
   export default {

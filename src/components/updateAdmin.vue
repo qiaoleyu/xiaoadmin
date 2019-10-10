@@ -18,11 +18,15 @@
       <el-input placeholder="请输入管理员邮箱" v-model="admin.aemail" size="large" style="width: 450px">
         <template slot="prepend" >管理员邮箱</template>
       </el-input><br><br>
-        <el-button type="success" round @click="update()">确认修改</el-button>
+        <el-button type="success" round plain @click="update()">确认修改</el-button>
     </form>
   </div>
 </template>
-
+<style>
+  .el-main{
+    line-height: inherit;
+  }
+</style>
 <script>
   import axios from 'axios'
 export default {

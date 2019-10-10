@@ -31,16 +31,16 @@ export default new Router({
       name: 'admin',
       component: admin,
       children:[
+        {path: '/administrator', name: '查管理员', component: administrator},
+        {path: '/addAdmin', name: '添管理员', component: addAdmin},
+        {path: '/updateAdmin/:id', name: '改管理员', component: updateAdmin},
         {path: '/shops', name: '商品管理', component: shops},
         {path: '/addShops', name: '添加商品', component: addShops},
         {path: '/updateShops/:shopId', name: '修改商品', component: updateShops},
         {path: '/showKinds', name: '类别管理', component: showKinds},
         {path: '/addShopKinds', name: '添加类别', component: addShopKinds},
-        {path: '/updateShopKinds/:skId', name: '修改类别 ', component: updateShopKinds}
+        {path: '/updateShopKinds/:skId', name: '修改类别 ', component: updateShopKinds},
       ]
-    },
-    {path: '/administrator', name: 'administrator', component: administrator},
-    {path: '/updateAdmin/:id', name: 'updateAdmin', component: updateAdmin},
-    {path: '/addAdmin', name: 'addAdmin', component: addAdmin}
+    }
   ]
 })
