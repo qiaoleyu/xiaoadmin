@@ -181,7 +181,7 @@
         this.params.page=page;
         if (this.value!=''&& this.input!=''){
           this.search();
-        }if (this.name!='') {
+        }else if (this.name!='') {
             this.orderShops();
         }else{
           this.queryShops();
