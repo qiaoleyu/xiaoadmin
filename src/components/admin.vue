@@ -218,17 +218,12 @@
           }
       },mounted(){
        var an= Cookies.get('name');
-       alert(an)
       this.adminName=an
-      console.log(this.adminName)
     },
     methods:{
       logout:function () {
         Cookies.remove('name'); // fail!
         this.adminName='未登录'
-        //Cookies.remove('aname', { path: '/admin' });
-//        Cookies.remove('aname');
-//          Cookies.remove('aname',{path:'/admin'})
       },
       findAllKinds:function () {
         this.$router.push()

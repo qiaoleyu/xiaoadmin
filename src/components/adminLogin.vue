@@ -73,7 +73,6 @@
 //                    alert(this.admin.aname);
                     Cookies.set('name',this.loginName,{ expires: 7, path: '/' });
 
-                    console.log(Cookies.get('name'))
                       this.$router.push("/shops");
                   }else{
                       alert("登录失败");
