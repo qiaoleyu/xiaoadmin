@@ -20,7 +20,7 @@
                 v-model="input" placeholder="输入要查询内容"></el-input>
        <el-button plain type="primary" style="width: 80px;height: 40px" @click="search()">查询</el-button>
          <template>
-           <el-select v-model="name" placeholder="请选择查">
+           <el-select v-model="name" placeholder="请选择">
              <el-option
                v-for="item in orderBy"
                :key="item.name"
@@ -76,6 +76,12 @@
   </div>
 </template>
 
+<style>
+  .el-main{
+    /*background-color: inherit;*/
+    line-height: inherit;
+  }
+</style>
 <script>
   import axios from 'axios'
   import ElRow from "element-ui/packages/row/src/row";
