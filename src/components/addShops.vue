@@ -125,10 +125,7 @@
         axios.post("/api/addShops",this.shop).then(res=>{
           if(res.data==1){
             this.$router.push('/shops');
-          }else if(res.data=="unauth"){
-            this.$router.push('/unauth')
-          }
-          else {
+          }else {
             alert("新增失败");
           }
         })

@@ -40,7 +40,7 @@
         permission:[],
       }
     },
-    mounted:function () {
+    mounted() {
       this.findPermissionById();
       var url = "api/findAllRoles";
       axios.get(url).then(res => {
@@ -50,7 +50,8 @@
     methods:{
       findPermissionById:function () {
         var pid=this.$route.params.pid;
-        axios.get("/api/findPermissionById/"+pid).then(res=>{
+        //alert(pid)
+        axios.post("/api/findPermissionById/"+pid).then(res=>{
           this.permission=res.data;
         })
       },
@@ -58,10 +59,7 @@
         axios.post("/api/updatePermission",this.permission).then(res=>{
           if(res.data==1){
             this.$router.push('/permission');
-          }else if(res.data=="unauth"){
-            this.$router.push('/unauth')
-          }
-          else {
+          }else {
             alert("修改失败");
           }
         })

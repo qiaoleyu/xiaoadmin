@@ -2,6 +2,7 @@
   <div class="hello" style="width: 100%;margin: auto">
 
     <h1>{{ msg }}</h1>
+    <el-button type="primary" round @click="insert()">增加权限</el-button>
 
     <el-table :data="permission" stripe style="width: 100%" align="center">
 
@@ -53,18 +54,32 @@
     },
     methods:{
       insert:function () {
-        this.$router.push('/addPermission');
+       axios.get("api/unauth").then(res=>{
+          if(res.data==1){
+            this.$router.push('/addPermission');
+          }if(res.data==0) {
+            this.$router.push('/unauth')
+          }
+        })
       },
       update:function (pid) {
-        this.$router.push({path:'/updatePermission/'+pid})
+
+          axios.get("api/unauth").then(res=>{
+            if(res.data==1){
+              this.$router.push({path:'/updatePermission/'+pid})
+            }if(res.data==0) {
+              this.$router.push('/unauth')
+            }
+          })
+
       },
       del:function (pid) {
 
-        axios.post("/api/deletePermission/" + pid).then(res => {
+        axios.post("api/deletePermission/" + pid).then(res => {
 
           if (res.data == 1) {
             this.queryPermission();
-          } else if(res.data=="unauth"){
+          } else if(res.data==0) {
             this.$router.push('/unauth')
           }
           else {

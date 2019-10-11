@@ -78,11 +78,24 @@
         })
       },
       toAdd:function () {
-        this.$router.push("/addRole")
+
+        axios.get("api/unauth").then(res=>{
+          if(res.data==1){
+            this.$router.push("/addRole")
+          }if(res.data==0) {
+            this.$router.push('/unauth')
+          }
+        })
       },
       update:function (id) {
-         // alert(id)
-        this.$router.push({path:"/updateRole/"+id})
+
+        axios.get("api/unauth").then(res=>{
+          if(res.data==1){
+            this.$router.push({path:"/updateRole/"+id})
+          }if(res.data==0) {
+            this.$router.push('/unauth')
+          }
+        })
       },
       del:function (id) {
        // alert(id)
@@ -90,7 +103,7 @@
         axios.get(url).then(res=>{
             if(res.data==1){
               this.queryRole()
-            }else if(res.data=="unauth"){
+            }else if(res.data.equals("unauth")){
               this.$router.push('/unauth')
             }
             else{

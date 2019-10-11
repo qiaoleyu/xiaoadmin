@@ -85,11 +85,24 @@
           })
        },
       toAdd:function () {
-        this.$router.push("/addAdmin")
+
+        axios.get("api/unauth").then(res=>{
+          if(res.data==1){
+            this.$router.push("/addAdmin")
+          }if(res.data==0) {
+            this.$router.push('/unauth')
+          }
+        })
       },
       update:function (id) {
-         // alert(id)
-        this.$router.push({path:"/updateAdmin/"+id})
+
+        axios.get("api/unauth").then(res=>{
+          if(res.data==1){
+            this.$router.push({path:"/updateAdmin/"+id})
+          }if(res.data==0) {
+            this.$router.push('/unauth')
+          }
+        })
       },
       del:function (id) {
        // alert(id)
@@ -97,7 +110,7 @@
         axios.get(url).then(res=>{
             if(res.data==1){
               this.query()
-            }else if(res.data=="unauth"){
+            }else if(res.data.equals("unauth")){
               this.$router.push('/unauth')
             }else{
                 alert("删除失败！")

@@ -43,7 +43,7 @@ export default new Router({
         {path:'/updateRole/:id',name:'更新角色',component:updateRole},
         {path:'/permission',name:'权限管理',component:permission},
         {path:'/addPermission',name:'添加权限',component:addPermission},
-        {path:'/updatePermission/:id',name:'更改权限',component:updatePermission},
+        {path:'/updatePermission/:pid',name:'更改权限',component:updatePermission},
         {path: '/administrator', name: '查管理员', component: administrator},
         {path: '/addAdmin', name: '添管理员', component: addAdmin},
         {path: '/updateAdmin/:id', name: '改管理员', component: updateAdmin},

@@ -35,7 +35,7 @@
      </div>
 
 
-
+    <el-button type="primary" round @click="toinsert()">增加权限</el-button>
     <el-table :data="shops" stripe style="width: 100%;">
       <el-table-column prop="shopId" label="商品编号" width="80"> </el-table-column>
 
@@ -155,10 +155,24 @@
       },
 
       toinsert:function () {
-        this.$router.push('/addShops');
+
+        axios.get("api/unauth").then(res=>{
+          if(res.data==1){
+            this.$router.push('/addShops');
+          }if(res.data==0) {
+            this.$router.push('/unauth')
+          }
+        })
       },
       toupdate:function (shopId) {
-        this.$router.push({path:'/updateShops/'+shopId})
+
+        axios.get("api/unauth").then(res=>{
+          if(res.data==1){
+            this.$router.push({path:'/updateShops/'+shopId})
+          }if(res.data==0) {
+            this.$router.push('/unauth')
+          }
+        })
       },
       deleteUser:function (shopId) {
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
@@ -169,7 +183,7 @@
           axios.get("/api/deleteShops/"+shopId).then(res=>{
             if(res.data==1){
               this.queryShops();
-            }else if(res.data=="unauth"){
+            }else if(res.data.equals("unauth")){
               this.$router.push('/unauth')
             }
 

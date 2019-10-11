@@ -52,10 +52,7 @@
         axios.post("/api/addPermission",this.permission).then(res=>{
           if(res.data==1){
             this.$router.push('/permission');
-          }else if(res.data=="unauth"){
-            this.$router.push('/unauth')
-          }
-          else {
+          }else {
             alert("新增失败");
           }
         })
