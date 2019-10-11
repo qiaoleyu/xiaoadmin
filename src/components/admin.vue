@@ -243,16 +243,15 @@
             adminName:'未登录'
           }
       },mounted(){
-       var an= Cookies.get('name');
-      console.log(an)
-       this.adminName=an
+      this.adminName= Cookies.get('name');
+      console.log(this.adminName)
 
     },
     methods:{
       logout:function () {
 //          alert()
         Cookies.remove('name'); // fail!
-//        this.adminName='未登录'
+//       this.adminName='未登录'
         this.$router.push("/adminLogin")
       },
       findAllKinds:function () {

@@ -60,9 +60,16 @@
         password: [{ validator: validatePass, trigger: 'blur' }],
       }
     }
-  },
+  },mounted(){
+      if(Cookies.get('name')!=null){
+        Cookies.remove('name');
+        Cookies.remove('name',{ path: '/' })
+      }
+    },
     methods: {
       login:function () {
+
+
         /*  this.$refs['admin'].validate((valid)=>{
               if(valid){
 //                  alert("submit");
