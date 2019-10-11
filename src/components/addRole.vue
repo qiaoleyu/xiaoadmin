@@ -6,7 +6,7 @@
       <el-form-item label="角色名称:">
         <el-input class="arrow"  v-model="role.rname" style="width: 500px"></el-input>
       </el-form-item>
-      <el-form-item style="height: 60px;width: 200px;margin: auto">
+      <el-form-item style="height: 60px;width: 200px;margin-left: 150px">
         <el-button type="primary" round plain style="width: 100px" @click="add()">确认增加</el-button>
       </el-form-item>
 

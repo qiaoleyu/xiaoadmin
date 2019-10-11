@@ -5,15 +5,15 @@
     <br>
     <el-container>
 
-      <!--<el-header class="app-header">-->
+      <el-header class="app-header">
 
-      <!--</el-header>-->
+      </el-header>
       <el-header>
-        <el-breadcrumb separator-class="iconfont el-icon-arrow-right" style="margin-left: 120px;line-height: 60px;width: 600px;float: left;font-size: 16px">
-          <!--<el-radio-group v-model="isCollapse" style="margin-bottom: 20px;line-height: 60px;float: left">-->
-            <!--<el-radio-button :label="false">展开</el-radio-button>-->
-            <!--<el-radio-button :label="true">收起</el-radio-button>-->
-          <!--</el-radio-group>-->
+        <el-breadcrumb separator-class="iconfont el-icon-arrow-right" style="margin-left: 40px;line-height: 60px;width: 700px;float: left;font-size: 16px">
+          <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;line-height: 60px;float: left">
+            <el-radio-button :label="false">展开</el-radio-button>
+            <el-radio-button :label="true">收起</el-radio-button>
+          </el-radio-group>
           <el-menu default-active="/"
                    router
                    class="el-menu-demo tab-page"
@@ -21,8 +21,8 @@
                    active-text-color="#409EFF">
             <!--<el-menu-item index="/">首页</el-menu-item>-->
             <!--<el-menu-item index="/admin">首页</el-menu-item>-->
-            <el-menu-item index="/adminRole">角色管理</el-menu-item>
-            <el-menu-item index="/adminShiro">权限管理</el-menu-item>
+            <el-menu-item index="/role">角色管理</el-menu-item>
+            <el-menu-item index="/permission">权限管理</el-menu-item>
             <el-menu-item index="/administrator">管理员管理</el-menu-item>
             <el-menu-item index="/shops">商品管理</el-menu-item>
             <el-menu-item index="/showKinds">类别管理</el-menu-item>
@@ -45,85 +45,114 @@
           <!--<el-aside width="200px" style="background-color: rgb(238, 241, 246)">-->
             <el-aside class="app-side app-side-left"
             style="width: inherit;">
-              <el-menu
-                router
-                class="el-menu-vertical-demo"
-              @open="handleOpen"
-              @close="handleClose"
-              :collapse="isCollapse"
-              >
-                <template v-for="route in $router.options.routes" v-if="route.children && route.children.length">
-                  <template v-for="item in route.children" >
-                    <el-menu-item
-                      :key="route.path + '/' + item.path"
-                      :index="item.path"
-                    >
-                      <i class="el-icon-menu"></i>
-                      <span slot="title">{{ item.name }}</span>
-                    </el-menu-item>
-                  </template>
-                </template>
+              <!--<el-menu-->
+                <!--router-->
+                <!--class="el-menu-vertical-demo"-->
+              <!--@open="handleOpen"-->
+              <!--@close="handleClose"-->
+              <!--:collapse="isCollapse"-->
+              <!--&gt;-->
+                <!--<template v-for="route in $router.options.routes" v-if="route.children && route.children.length">-->
+                  <!--<template v-for="item in route.children" >-->
+                    <!--<el-menu-item-->
+                      <!--:key="route.path + '/' + item.path"-->
+                      <!--:index="item.path"-->
+                    <!--&gt;-->
+                      <!--<i class="el-icon-menu"></i>-->
+                      <!--<span slot="title">{{ item.name }}</span>-->
+                    <!--</el-menu-item>-->
+                  <!--</template>-->
+                <!--</template>-->
               <!--</el-menu>-->
             <!--</el-aside>-->
 
-            <!--<el-menu :default-active="this.$route.path"-->
-                     <!--class="el-menu-vertical-demo"-->
-                     <!--@open="handleOpen"-->
-                     <!--@close="handleClose"-->
-                     <!--:collapse="isCollapse" background-color="#545c64"-->
-                     <!--text-color="#fff"-->
-                     <!--active-text-color="#ffd04b"-->
-                     <!--router>-->
-              <!--<el-submenu index="1">-->
-                <!--<template slot="title">-->
-                  <!--<i class="el-icon-message"></i>-->
-                  <!--<span slot="title">角色管理</span>-->
-                <!--</template>-->
+            <el-menu :default-active="this.$route.children"
+                     class="el-menu-vertical-demo"
+                     @open="handleOpen"
+                     @close="handleClose"
+                     :collapse="isCollapse" background-color="#545c64"
+                     text-color="#fff"
+                     active-text-color="#ffd04b"
+                     router>
+              <el-submenu index="1">
+                <template slot="title">
+                  <i class="el-icon-message"></i>
+                  <span slot="title">角色管理</span>
+                </template>
                 <!--<el-menu-item-group>-->
                   <!--<span slot="title">权限设置</span>-->
-                  <!--<el-menu-item index="1-1" class="el-icon-document">查|改|删</el-menu-item>-->
-                  <!--<el-menu-item index="1-2" class="el-icon-circle-plus">添加</el-menu-item>-->
-                  <!--&lt;!&ndash;<el-menu-item index="1-3" class="el-icon-edit">修改</el-menu-item>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<el-menu-item index="1-4" class="el-icon-delete">删除</el-menu-item>&ndash;&gt;-->
+                  <el-menu-item index="role" class="el-icon-document">查看</el-menu-item>
+                  <el-menu-item index="addRole" class="el-icon-circle-plus">添加</el-menu-item>
+                  <el-menu-item index="updateRole" class="el-icon-edit" disabled>修改</el-menu-item>
+                  <!--<el-menu-item index="1-3" class="el-icon-edit">修改</el-menu-item>-->
+                  <!--<el-menu-item index="1-4" class="el-icon-delete">删除</el-menu-item>-->
                 <!--</el-menu-item-group>-->
                 <!--<el-menu-item-group title="管理员维护">-->
                   <!--<el-menu-item index="1-3" class="el-icon-document">查|删</el-menu-item>-->
                   <!--<el-menu-item index="1-4" class="el-icon-circle-plus">添加</el-menu-item>-->
                   <!--&lt;!&ndash;<el-menu-item index="1-7" class="el-icon-delete"></el-menu-item>&ndash;&gt;-->
                 <!--</el-menu-item-group>-->
-              <!--</el-submenu>-->
-              <!--<el-submenu index="2">-->
-                <!--<template slot="title">-->
-                  <!--<i class="el-icon-menu"></i>-->
-                  <!--<span slot="title">用户管理</span>-->
-                <!--</template>-->
+              </el-submenu>
+              <el-submenu index="2">
+                <template slot="title">
+                  <i class="el-icon-setting"></i>
+                  <span slot="title">权限管理</span>
+                </template>
+                <!--<el-menu-item-group>-->
+                <!--<span slot="title">权限设置</span>-->
+                <el-menu-item index="permission" class="el-icon-document">查看</el-menu-item>
+                <el-menu-item index="addPermission" class="el-icon-circle-plus">添加</el-menu-item>
+                <el-menu-item index="updatePermission" class="el-icon-edit" disabled>修改</el-menu-item>
+              </el-submenu>
+              <el-submenu index="3">
+                <template slot="title">
+                  <i class="el-icon-s-custom"></i>
+                  <span slot="title">管理操作</span>
+                </template>
                 <!--<el-menu-item-group>-->
                   <!--<span slot="title">权限设置</span>-->
-                  <!--<el-menu-item index="2-1" class="el-icon-circle-plus">信息维护</el-menu-item>-->
-                  <!--<el-menu-item index="2-2" class="el-icon-edit">修改密码</el-menu-item>-->
-                  <!--<el-menu-item index="2-3" class="el-icon-delete">注销账户</el-menu-item>-->
+
+                <el-menu-item index="administrator" class="el-icon-document">查看</el-menu-item>
+                <el-menu-item index="addAdmin" class="el-icon-circle-plus">添加</el-menu-item>
+                <el-menu-item index="updateAdmin" class="el-icon-edit" disabled>修改</el-menu-item>
+
+                  <!--<el-menu-item index="3-1" class="el-icon-circle-plus">信息维护</el-menu-item>-->
+                  <!--<el-menu-item index="3-2" class="el-icon-edit">修改密码</el-menu-item>-->
+                  <!--<el-menu-item index="3-3" class="el-icon-delete">注销账户</el-menu-item>-->
                 <!--</el-menu-item-group>-->
-              <!--</el-submenu>-->
-              <!--<el-submenu index="3">-->
-                <!--<template slot="title">-->
-                  <!--<i class="el-icon-setting"></i>-->
-                  <!--<span slot="title">商品管理</span>-->
-                <!--</template>-->
+              </el-submenu>
+              <el-submenu index="4">
+                <template slot="title">
+                  <i class="el-icon-s-cooperation"></i>
+                  <span slot="title">商品管理</span>
+                </template>
                 <!--<el-menu-item-group>-->
                   <!--<span slot="title">类别管理</span>-->
-                  <!--<el-menu-item index="3-1" class="el-icon-document" @click="findAllKinds()">查|改|删</el-menu-item>-->
-                  <!--<el-menu-item index="3-2" class="el-icon-circle-plus">添加</el-menu-item>-->
-                  <!--&lt;!&ndash;<el-menu-item index="3-3" class="el-icon-edit">修改</el-menu-item>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<el-menu-item index="3-4" class="el-icon-delete">删除</el-menu-item>&ndash;&gt;-->
+                  <el-menu-item index="shops" class="el-icon-document">查看</el-menu-item>
+                  <el-menu-item index="addShops" class="el-icon-circle-plus">添加</el-menu-item>
+                  <el-menu-item index="updateShops" class="el-icon-edit" disabled>修改</el-menu-item>
+                  <!--<el-menu-item index="3-3" class="el-icon-edit">修改</el-menu-item>-->
+                  <!--<el-menu-item index="3-4" class="el-icon-delete">删除</el-menu-item>-->
                 <!--</el-menu-item-group>-->
                 <!--<el-menu-item-group>-->
                   <!--<span slot="title">商品管理</span>-->
-                  <!--<el-menu-item index="3-3" class="el-icon-document">查|改|删</el-menu-item>-->
+                  <!--<el-menu-item index="3-3" class="el-icon-document">查看</el-menu-item>-->
                   <!--<el-menu-item index="3-4" class="el-icon-circle-plus">添加</el-menu-item>-->
                   <!--&lt;!&ndash;<el-menu-item index="3-7" class="el-icon-edit"></el-menu-item>&ndash;&gt;-->
                   <!--&lt;!&ndash;<el-menu-item index="3-8" class="el-icon-delete"></el-menu-item>&ndash;&gt;-->
                 <!--</el-menu-item-group>-->
-              <!--</el-submenu>-->
+              </el-submenu>
+              <el-submenu index="5">
+                <template slot="title">
+                  <i class="el-icon-menu"></i>
+                  <span slot="title">类别管理</span>
+                </template>
+                <!--<el-menu-item-group>-->
+                <!--<span slot="title">类别管理</span>-->
+                <el-menu-item index="showKinds" class="el-icon-document">查看</el-menu-item>
+                <el-menu-item index="addShopKinds" class="el-icon-circle-plus">添加</el-menu-item>
+                <el-menu-item index="updateShopKinds" class="el-icon-edit" disabled>修改</el-menu-item>
+              </el-submenu>
             </el-menu>
           </el-aside>
           <el-main>

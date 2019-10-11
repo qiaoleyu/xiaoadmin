@@ -15,6 +15,10 @@ import addAdmin from '@/components/addAdmin'
 import role from '@/components/role'
 import addRole from '@/components/addRole'
 import updateRole from '@/components/updateRole'
+import permission from '@/components/permission'
+import addPermission from '@/components/addPermission'
+import updatePermission from '@/components/updatePermission'
+import unauth from '@/components/unauth'
 
 
 Vue.use(Router)
@@ -34,6 +38,12 @@ export default new Router({
       name: 'admin',
       component: admin,
       children:[
+        {path:'/role',name:'角色管理',component:role},
+        {path:'/addRole',name:'添加角色',component:addRole},
+        {path:'/updateRole/:id',name:'更新角色',component:updateRole},
+        {path:'/permission',name:'权限管理',component:permission},
+        {path:'/addPermission',name:'添加权限',component:addPermission},
+        {path:'/updatePermission/:id',name:'更改权限',component:updatePermission},
         {path: '/administrator', name: '查管理员', component: administrator},
         {path: '/addAdmin', name: '添管理员', component: addAdmin},
         {path: '/updateAdmin/:id', name: '改管理员', component: updateAdmin},
@@ -44,9 +54,10 @@ export default new Router({
         {path: '/addShopKinds', name: '添加类别', component: addShopKinds},
         {path: '/updateShopKinds/:skId', name: '修改类别 ', component: updateShopKinds},
       ]
-    },
-    {path:'/role',name:'role',component:role},
-    {path:'/addRole',name:'addRole',component:addRole},
-    {path:'/updateRole/:id',name:'addRole',component:updateRole}
+    },{
+      path: '/unauth',
+      name: 'unauth',
+      component: unauth
+    }
   ]
 })
