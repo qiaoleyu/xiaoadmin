@@ -1,20 +1,31 @@
 <template>
   <div>
-  <h1>{{msg}}</h1>
-    <el-button type="success" round plain @click="show1()">笔记本 平板</el-button>
-    <el-button type="success" round plain @click="show2()">出行 穿戴</el-button>
-    <el-button type="success" round plain @click="show3()">手机 电话卡</el-button>
-    <el-button type="success" round plain @click="show4()">电视 盒子</el-button>
-    <el-button type="success" round plain @click="show5()">家电 插线板</el-button>
-    <el-button type="success" round plain @click="show6()">智能 路由器</el-button>
-    <el-button type="success" round plain @click="show7()">电源 配件</el-button>
-    <el-button type="success" round plain @click="show8()">健康 儿童</el-button>
-    <el-button type="success" round plain @click="show9()">生活 箱包</el-button>
-    <el-button type="success" round plain @click="show10()">耳机  音箱</el-button>
-  <div id="saleShow" style="width: 1000px;height: 500px;margin: auto ;padding-top: 40px"></div>
+  <h3>{{msg}}</h3>
+    <!--<div style="float: left;margin: auto">-->
+    <el-button type="success" round plain style="width: 200px;margin-left: 10px" @click="show1()">笔记本|平板</el-button>
+    <el-button type="success" round plain style="width: 200px"@click="show2()">出行|穿戴</el-button>
+    <el-button type="success" round plain style="width: 200px"@click="show3()">手机|电话卡</el-button>
+    <el-button type="success" round plain style="width: 200px"@click="show4()">电视|盒子</el-button>
+    <el-button type="success" round plain style="width: 200px;margin-bottom: 10px"@click="show5()">家电|插线板</el-button>
+    <!--</div>-->
+    <!--<div style="float: left;margin: auto">-->
+    <el-button type="success" round plain style="width: 200px"@click="show6()">智能|路由器</el-button>
+    <el-button type="success" round plain style="width: 200px"@click="show7()">电源|配件</el-button>
+    <el-button type="success" round plain style="width: 200px"@click="show8()">健康|儿童</el-button>
+    <el-button type="success" round plain style="width: 200px"@click="show9()">生活|箱包</el-button>
+    <el-button type="success" round plain style="width: 200px"@click="show10()">耳机|音箱</el-button>
+    <!--</div>-->
+  <div id="saleShow" style="width: 1000px;height: 500px;margin: auto ;padding-top: 20px"></div>
   </div>
 
 </template>
+<style>
+  .el-main{
+    line-height: inherit;
+  }
+</style>
+
+
 <script>
   import axios from 'axios'
   // 引入基本模板
