@@ -4,11 +4,7 @@
     <br>
     <br>
     <el-container>
-
       <el-header class="app-header">
-
-      </el-header>
-      <el-header>
         <el-breadcrumb separator-class="iconfont el-icon-arrow-right" style="margin-left: 40px;line-height: 60px;width: 700px;float: left;font-size: 16px">
           <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;line-height: 60px;float: left">
             <el-radio-button :label="false">展开</el-radio-button>
