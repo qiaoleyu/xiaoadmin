@@ -37,7 +37,7 @@
         </div>
       </el-header>
 
-        <el-container style="height: 600px; border: 1px solid #eee">
+        <el-container style="height: 800px; border: 1px solid #eee">
           <!--<el-aside width="200px" style="background-color: rgb(238, 241, 246)">-->
             <el-aside class="app-side app-side-left"
             style="width: inherit;">
@@ -127,6 +127,7 @@
                   <el-menu-item index="/shops" class="el-icon-document">查看</el-menu-item>
                   <el-menu-item index="/addShops" class="el-icon-circle-plus">添加</el-menu-item>
                   <el-menu-item index="/updateShops" class="el-icon-edit" disabled>修改</el-menu-item>
+                  <el-menu-item index="/saleShow" class="el-icon-s-operation">销量</el-menu-item>
                   <!--<el-menu-item index="3-3" class="el-icon-edit">修改</el-menu-item>-->
                   <!--<el-menu-item index="3-4" class="el-icon-delete">删除</el-menu-item>-->
                 <!--</el-menu-item-group>-->
@@ -202,7 +203,7 @@
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
-    line-height: 160px;
+    /*line-height: 160px;*/
   }
 
   body > .el-container {
@@ -242,16 +243,15 @@
             adminName:'未登录'
           }
       },mounted(){
-       var an= Cookies.get('name');
-      console.log(an)
-       this.adminName=an
+      this.adminName= Cookies.get('name');
+      console.log(this.adminName)
 
     },
     methods:{
       logout:function () {
 //          alert()
         Cookies.remove('name'); // fail!
-//        this.adminName='未登录'
+//       this.adminName='未登录'
         this.$router.push("/adminLogin")
       },
       findAllKinds:function () {
