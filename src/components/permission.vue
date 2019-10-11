@@ -18,7 +18,7 @@
       <el-table-column align="center" label="操作" width="180">
         <el-button-group slot-scope="scope">
           <el-button type="primary" plain icon="el-icon-edit" @click="update(scope.row.pid)"></el-button>
-          <el-button type="primary" plain icon="el-icon-delete" @click="delete(scope.row.pid)"></el-button>
+          <el-button type="primary" plain icon="el-icon-delete" @click="del(scope.row.pid)"></el-button>
         </el-button-group>
       </el-table-column>
     </el-table>
@@ -58,26 +58,20 @@
       update:function (pid) {
         this.$router.push({path:'/updatePermission/'+pid})
       },
-      delete:function (pid) {
-        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          axios.get("/api/deletePermission/"+pid).then(res=>{
-            this.queryPermission();
+      del:function (pid) {
 
-          })
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
-          });
-        });
+        axios.post("/api/deletePermission/" + pid).then(res => {
+
+          if (res.data == 1) {
+            this.queryPermission();
+          } else if(res.data=="unauth"){
+            this.$router.push('/unauth')
+          }
+          else {
+              alert("删除失败")
+          }
+
+        })
       },
       queryPermission:function() {
         var url = "api/findAllPermissions"

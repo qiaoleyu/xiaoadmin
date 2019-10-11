@@ -167,8 +167,12 @@
           type: 'warning'
         }).then(() => {
           axios.get("/api/deleteShops/"+shopId).then(res=>{
+            if(res.data==1){
+              this.queryShops();
+            }else if(res.data=="unauth"){
+              this.$router.push('/unauth')
+            }
 
-            this.queryShops();
 
           })
           this.$message({

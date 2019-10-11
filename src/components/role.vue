@@ -90,7 +90,10 @@
         axios.get(url).then(res=>{
             if(res.data==1){
               this.queryRole()
-            }else{
+            }else if(res.data=="unauth"){
+              this.$router.push('/unauth')
+            }
+            else{
                 alert("删除失败！")
             }
         })

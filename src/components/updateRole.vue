@@ -62,7 +62,10 @@ export default {
          //alert(res.data);
          if(res.data==1){
            this.$router.push("/role")
-         }else {
+         }else if(res.data=="unauth"){
+           this.$router.push('/unauth')
+         }
+         else {
            alert("修改失败！")
          }
 

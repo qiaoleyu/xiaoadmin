@@ -56,8 +56,10 @@
       },
       updatePermission:function () {
         axios.post("/api/updatePermission",this.permission).then(res=>{
-          if(res.data!=null){
+          if(res.data==1){
             this.$router.push('/permission');
+          }else if(res.data=="unauth"){
+            this.$router.push('/unauth')
           }
           else {
             alert("修改失败");
