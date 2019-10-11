@@ -10,12 +10,12 @@
       <el-table-column align="center"
                        prop="rid"
                        label="角色编号"
-                       width="100">
+                       width="250">
       </el-table-column>
       <el-table-column align="center"
                        prop="aid"
                        label="管理员姓名"
-                       width="140">
+                       width="300">
         <template slot-scope="scope">
           <div  v-for="(admin,index) in admin">
             <span v-if="scope.row.aid==admin.aid">{{admin.aname}}</span>
@@ -25,12 +25,12 @@
         <el-table-column align="center"
                         prop="rname"
                        label="角色名称"
-                       width="140"  >
+                       width="300"  >
       </el-table-column>
 
       <el-table-column align="center"
                        label="操作"
-                       width="140">
+                       width="250">
         <template slot-scope="role">
 
           <el-button type="danger" icon="el-icon-delete" circle @click="del(role.row.rid)"></el-button>
@@ -50,7 +50,6 @@
 <script>
   import axios from 'axios'
   export default {
-
     data () {
       return {
         msg: '角色详情页面',
@@ -83,6 +82,7 @@
           if(res.data==1){
             this.$router.push("/addRole")
           }if(res.data==0) {
+
             this.$router.push('/unauth')
           }
         })
@@ -94,6 +94,7 @@
             this.$router.push({path:"/updateRole/"+id})
           }if(res.data==0) {
             this.$router.push('/unauth')
+
           }
         })
       },
@@ -103,7 +104,7 @@
         axios.get(url).then(res=>{
             if(res.data==1){
               this.queryRole()
-            }else if(res.data.equals("unauth")){
+            }else if(res.data==0) {
               this.$router.push('/unauth')
             }
             else{

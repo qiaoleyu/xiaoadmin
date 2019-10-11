@@ -6,10 +6,10 @@
 
     <el-table :data="permission" stripe style="width: 100%" align="center">
 
-      <el-table-column align="center" type="center" prop="pid" label="权限编号" width="80"></el-table-column>
-      <el-table-column align="center" prop="pname" label="权限名称" width="80"></el-table-column>
-      <el-table-column align="center" prop="pinfo" label="权限信息" width="80"></el-table-column>
-      <el-table-column align="center" prop="rid" label="角色名称" width="100">
+      <el-table-column align="center" type="center" prop="pid" label="权限编号" width="200"></el-table-column>
+      <el-table-column align="center" prop="pname" label="权限名称" width="200"></el-table-column>
+      <el-table-column align="center" prop="pinfo" label="权限信息" width="200"></el-table-column>
+      <el-table-column align="center" prop="rid" label="角色名称" width="200">
         <template slot-scope="scope">
           <div  v-for="(roles,index) in roles">
             <span v-if="scope.row.rid==roles.rid">{{roles.rname}}</span>

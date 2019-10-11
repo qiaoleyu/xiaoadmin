@@ -90,7 +90,7 @@
           if(res.data==1){
             this.$router.push("/addAdmin")
           }if(res.data==0) {
-            this.$router.push('/unauth')
+            this.$router.push('/anauth')
           }
         })
       },
@@ -100,7 +100,7 @@
           if(res.data==1){
             this.$router.push({path:"/updateAdmin/"+id})
           }if(res.data==0) {
-            this.$router.push('/unauth')
+            this.$router.push('/anauth')
           }
         })
       },
@@ -110,8 +110,8 @@
         axios.get(url).then(res=>{
             if(res.data==1){
               this.query()
-            }else if(res.data.equals("unauth")){
-              this.$router.push('/unauth')
+            }else if(res.data==0) {
+              this.$router.push('/anauth')
             }else{
                 alert("删除失败！")
             }

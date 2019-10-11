@@ -19,6 +19,7 @@ import permission from '@/components/permission'
 import addPermission from '@/components/addPermission'
 import updatePermission from '@/components/updatePermission'
 import unauth from '@/components/unauth'
+import saleShow from '@/components/saleShow'
 
 
 Vue.use(Router)
@@ -53,11 +54,8 @@ export default new Router({
         {path: '/showKinds', name: '类别管理', component: showKinds},
         {path: '/addShopKinds', name: '添加类别', component: addShopKinds},
         {path: '/updateShopKinds/:skId', name: '修改类别 ', component: updateShopKinds},
+        {path: '/unauth', name: 'unauth', component: unauth}
       ]
-    },{
-      path: '/unauth',
-      name: 'unauth',
-      component: unauth
-    }
+    },{path: '/saleShow', name: 'saleShow', component: saleShow}
   ]
 })

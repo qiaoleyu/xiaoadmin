@@ -3,17 +3,24 @@
 
     <!--<h1>{{msg}}</h1>-->
     <!--<img src="./assets/logo1.jpg" style="width: 250px;height: 150px">-->
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 export default {
+
   name: 'App',
   data(){
     return{
       msg:'Welcome to 后台管理页面'
     }
+  },methods:{
+    activated: function() {
+      this.getCase()
+    },
   }
 
 }

@@ -243,7 +243,9 @@
           }
       },mounted(){
        var an= Cookies.get('name');
-      this.adminName=an
+      console.log(an)
+       this.adminName=an
+
     },
     methods:{
       logout:function () {
