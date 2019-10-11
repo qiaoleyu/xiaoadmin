@@ -103,7 +103,7 @@
         axios.get(url).then(res=>{
             if(res.data==1){
               this.queryRole()
-            }else if(res.data.equals("unauth")){
+            }else if(res.data==0) {
               this.$router.push('/unauth')
             }
             else{

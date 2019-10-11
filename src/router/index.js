@@ -53,11 +53,12 @@ export default new Router({
         {path: '/showKinds', name: '类别管理', component: showKinds},
         {path: '/addShopKinds', name: '添加类别', component: addShopKinds},
         {path: '/updateShopKinds/:skId', name: '修改类别 ', component: updateShopKinds},
+        {
+          path: '/unauth',
+          name: 'unauth',
+          component: unauth
+        }
       ]
-    },{
-      path: '/unauth',
-      name: 'unauth',
-      component: unauth
     }
   ]
 })
