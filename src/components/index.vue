@@ -58,6 +58,8 @@ export default {
     }
   },methods:{
      login:function () {
+       Cookies.remove('name'); // fail!
+       Cookies.remove('name',{path:'/'})
        this.$router.push("/adminLogin")
      },
     logout:function () {
