@@ -37,7 +37,7 @@
 
     <el-button type="primary" round @click="toinsert()">增加权限</el-button>
     <el-table :data="shops" stripe style="width: 100%;">
-      <el-table-column prop="shopId" label="商品编号" width="80"> </el-table-column>
+      <el-table-column prop="shopId" label="编号" width="60"> </el-table-column>
 
       <el-table-column label="图片" width="100" >
         <template slot-scope="scope">
@@ -51,7 +51,7 @@
       <el-table-column prop="shopRepertory" label="商品库存" width="80px"></el-table-column>
       <el-table-column prop="productTime" label="生产日期" width="100"></el-table-column>
       <el-table-column prop="factory" label="生产厂家" width="100"></el-table-column>
-      <el-table-column prop="shopInfo" label="商品详情描述"></el-table-column>
+      <el-table-column prop="shopInfo" label="商品详情描述" width="150"></el-table-column>
       <el-table-column prop="skId" label="商品类别">
         <template slot-scope="scope">
           <div  v-for="(shopKinds,index) in shopKinds">
@@ -59,7 +59,7 @@
           </div>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="180">
+      <el-table-column label="操作" width="150">
         <el-button-group slot-scope="scope">
           <el-button type="primary" plain icon="el-icon-edit" @click="toupdate(scope.row.shopId)"></el-button>
           <el-button type="primary" plain icon="el-icon-delete" @click="deleteUser(scope.row.shopId)"></el-button>
