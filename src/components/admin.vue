@@ -77,9 +77,9 @@
                 </template>
                 <!--<el-menu-item-group>-->
                   <!--<span slot="title">权限设置</span>-->
-                  <el-menu-item index="role" class="el-icon-document">查看</el-menu-item>
-                  <el-menu-item index="addRole" class="el-icon-circle-plus">添加</el-menu-item>
-                  <el-menu-item index="updateRole" class="el-icon-edit" disabled>修改</el-menu-item>
+                  <el-menu-item index="/role" class="el-icon-document">查看</el-menu-item>
+                  <el-menu-item index="/addRole" class="el-icon-circle-plus">添加</el-menu-item>
+                  <el-menu-item index="/updateRole" class="el-icon-edit" disabled>修改</el-menu-item>
                   <!--<el-menu-item index="1-3" class="el-icon-edit">修改</el-menu-item>-->
                   <!--<el-menu-item index="1-4" class="el-icon-delete">删除</el-menu-item>-->
                 <!--</el-menu-item-group>-->
@@ -96,9 +96,9 @@
                 </template>
                 <!--<el-menu-item-group>-->
                 <!--<span slot="title">权限设置</span>-->
-                <el-menu-item index="permission" class="el-icon-document">查看</el-menu-item>
-                <el-menu-item index="addPermission" class="el-icon-circle-plus">添加</el-menu-item>
-                <el-menu-item index="updatePermission" class="el-icon-edit" disabled>修改</el-menu-item>
+                <el-menu-item index="/permission" class="el-icon-document">查看</el-menu-item>
+                <el-menu-item index="/addPermission" class="el-icon-circle-plus">添加</el-menu-item>
+                <el-menu-item index="/updatePermission" class="el-icon-edit" disabled>修改</el-menu-item>
               </el-submenu>
               <el-submenu index="3">
                 <template slot="title">
@@ -108,9 +108,9 @@
                 <!--<el-menu-item-group>-->
                   <!--<span slot="title">权限设置</span>-->
 
-                <el-menu-item index="administrator" class="el-icon-document">查看</el-menu-item>
-                <el-menu-item index="addAdmin" class="el-icon-circle-plus">添加</el-menu-item>
-                <el-menu-item index="updateAdmin" class="el-icon-edit" disabled>修改</el-menu-item>
+                <el-menu-item index="/administrator" class="el-icon-document">查看</el-menu-item>
+                <el-menu-item index="/addAdmin" class="el-icon-circle-plus">添加</el-menu-item>
+                <el-menu-item index="/updateAdmin" class="el-icon-edit" disabled>修改</el-menu-item>
 
                   <!--<el-menu-item index="3-1" class="el-icon-circle-plus">信息维护</el-menu-item>-->
                   <!--<el-menu-item index="3-2" class="el-icon-edit">修改密码</el-menu-item>-->
@@ -124,9 +124,9 @@
                 </template>
                 <!--<el-menu-item-group>-->
                   <!--<span slot="title">类别管理</span>-->
-                  <el-menu-item index="shops" class="el-icon-document">查看</el-menu-item>
-                  <el-menu-item index="addShops" class="el-icon-circle-plus">添加</el-menu-item>
-                  <el-menu-item index="updateShops" class="el-icon-edit" disabled>修改</el-menu-item>
+                  <el-menu-item index="/shops" class="el-icon-document">查看</el-menu-item>
+                  <el-menu-item index="/addShops" class="el-icon-circle-plus">添加</el-menu-item>
+                  <el-menu-item index="/updateShops" class="el-icon-edit" disabled>修改</el-menu-item>
                   <!--<el-menu-item index="3-3" class="el-icon-edit">修改</el-menu-item>-->
                   <!--<el-menu-item index="3-4" class="el-icon-delete">删除</el-menu-item>-->
                 <!--</el-menu-item-group>-->
@@ -145,9 +145,9 @@
                 </template>
                 <!--<el-menu-item-group>-->
                 <!--<span slot="title">类别管理</span>-->
-                <el-menu-item index="showKinds" class="el-icon-document">查看</el-menu-item>
-                <el-menu-item index="addShopKinds" class="el-icon-circle-plus">添加</el-menu-item>
-                <el-menu-item index="updateShopKinds" class="el-icon-edit" disabled>修改</el-menu-item>
+                <el-menu-item index="/showKinds" class="el-icon-document">查看</el-menu-item>
+                <el-menu-item index="/addShopKinds" class="el-icon-circle-plus">添加</el-menu-item>
+                <el-menu-item index="/updateShopKinds" class="el-icon-edit" disabled>修改</el-menu-item>
               </el-submenu>
             </el-menu>
           </el-aside>
