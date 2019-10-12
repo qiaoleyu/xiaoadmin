@@ -128,6 +128,7 @@
     mounted(){
       this.queryShopKinds();
         this.queryShops();
+
     },
     methods:{
 
