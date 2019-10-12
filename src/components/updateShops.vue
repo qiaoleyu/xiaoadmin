@@ -136,9 +136,15 @@
       updateShops:function () {
         axios.post("/api/updateShops",this.shop).then(res=>{
           if (res.data==1){
+            this.$message({
+              message: '恭喜你，修改成功',
+              type: 'success'
+            });
             this.$router.push('/shops');
           }else{
-              alert("修改失败")
+//              alert("修改失败")
+            this.$message.error('错了哦，修改失败');
+
           }
         })
       }

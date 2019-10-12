@@ -82,7 +82,7 @@
           if(res.data==1){
             this.$router.push("/addRole")
           }if(res.data==0) {
-
+            this.$message.error('错了哦，您没有添加权限');
             this.$router.push('/unauth')
           }
         })
@@ -93,6 +93,7 @@
           if(res.data==1){
             this.$router.push({path:"/updateRole/"+id})
           }if(res.data==0) {
+            this.$message.error('错了哦，您没有修改权限');
             this.$router.push('/unauth')
 
           }
@@ -104,11 +105,18 @@
         axios.get(url).then(res=>{
             if(res.data==1){
               this.queryRole()
+              this.$message({
+                message: '恭喜你，删除角色成功',
+                type: 'success'
+              });
             }else if(res.data==0) {
+              this.$message.error('错了哦，您没有删除权限');
               this.$router.push('/unauth')
             }
             else{
-                alert("删除失败！")
+//                alert("删除失败！")
+              this.$message.error('错了哦，删除失败');
+
             }
         })
 

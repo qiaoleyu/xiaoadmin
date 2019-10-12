@@ -90,6 +90,7 @@
           if(res.data==1){
             this.$router.push("/addAdmin")
           }if(res.data==0) {
+            this.$message.error('错了哦，您没有添加的权限');
             this.$router.push('/anauth')
           }
         })
@@ -100,6 +101,7 @@
           if(res.data==1){
             this.$router.push({path:"/updateAdmin/"+id})
           }if(res.data==0) {
+            this.$message.error('错了哦，您没有修改的权限');
             this.$router.push('/anauth')
           }
         })
@@ -110,10 +112,17 @@
         axios.get(url).then(res=>{
             if(res.data==1){
               this.query()
+              this.$message({
+                message: '恭喜你，删除成功',
+                type: 'success'
+              });
             }else if(res.data==0) {
+              this.$message.error('错了哦，您没有权限');
               this.$router.push('/anauth')
             }else{
-                alert("删除失败！")
+//                alert("删除失败！")
+              this.$message.error('错了哦，删除失败');
+
             }
         })
 

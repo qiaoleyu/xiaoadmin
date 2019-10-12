@@ -47,9 +47,14 @@ export default {
        axios.post(url,this.role).then(res=>{
          //alert(res.data);
          if(res.data==1){
+           this.$message({
+             message: '恭喜你，新增成功',
+             type: 'success'
+           });
            this.$router.push("/role")
          }else {
-           alert("新增失败！")
+//           alert("新增失败！")
+           this.$message.error('错了哦，新增失败');
          }
 
        })

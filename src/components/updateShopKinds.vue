@@ -48,6 +48,10 @@ alert(skId)
       updateShopKinds:function () {
         axios.post("/api/updateShopKinds",this.shopKinds).then(r=>{
           if (r.data!=null){
+            this.$message({
+              message: '恭喜你，修改成功',
+              type: 'success'
+            });
             this.$router.push('/showKinds');
           }
         })

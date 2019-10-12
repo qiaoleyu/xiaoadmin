@@ -58,7 +58,8 @@
           if(res.data==1){
             this.$router.push('/addPermission');
           }if(res.data==0) {
-            this.$router.push('/unauth')
+           this.$message.error('错了哦，您没有添加的权限');
+           this.$router.push('/unauth')
           }
         })
       },
@@ -68,6 +69,7 @@
             if(res.data==1){
               this.$router.push({path:'/updatePermission/'+pid})
             }if(res.data==0) {
+              this.$message.error('错了哦，您没有修改的权限');
               this.$router.push('/unauth')
             }
           })
@@ -79,11 +81,17 @@
 
           if (res.data == 1) {
             this.queryPermission();
+            this.$message({
+              message: '恭喜你，删除成功',
+              type: 'success'
+            });
           } else if(res.data==0) {
+            this.$message.error('错了哦，您没有权限');
             this.$router.push('/unauth')
           }
           else {
-              alert("删除失败")
+//              alert("删除失败")
+            this.$message.error('错了哦，删除失败');
           }
 
         })

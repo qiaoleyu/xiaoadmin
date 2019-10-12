@@ -83,11 +83,15 @@
 //                      alert("登录成功！");
 //                    alert(this.admin.aname);
                     Cookies.set('name',this.loginName,{ expires: 7, path: '/' });
-
-                      this.$router.push("/shops");
+                    this.$message({
+                      message: '恭喜你，登录成功',
+                      type: 'success'
+                    });
+                    this.$router.push("/shops");
                   }else{
-                      alert("登录失败");
-                      this.$router.push("/adminLogin");
+//                      alert("登录失败");
+                    this.$message.error('错了哦，登录失败');
+                    this.$router.push("/adminLogin");
                   }
                 })
              /* }else{

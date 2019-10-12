@@ -33,10 +33,15 @@
       add:function () {
         axios.post("/api/addShopKinds",this.shopKinds).then(res=>{
           if(res.data=='success'){
+            this.$message({
+              message: '恭喜你，新增成功',
+              type: 'success'
+            });
             this.$router.push('/showKinds');
           }
           else {
-            alert(res.data);
+//            alert(res.data);
+            this.$message.error('错了哦，新增失败');
           }
         })
       }
