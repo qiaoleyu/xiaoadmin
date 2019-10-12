@@ -104,15 +104,11 @@
           this.shopKinds = res.data;
         })
       },
-      getFile: function (event) {
-        this.file = event.target.files[0];
-        console.log(this.file);
-      },
       handleAvatarSuccess(res, file) {
-        this.shop.shopPic = URL.createObjectURL(file.raw);
+        this.shop.shopPic = res;
       },
       AvatarSuccess(res, file) {
-        this.shop.shopBigPic = URL.createObjectURL(file.raw);
+        this.shop.shopBigPic = res;
       },
       beforeAvatarUpload(file) {
         const isJPG = file.type === 'image/jpeg';
