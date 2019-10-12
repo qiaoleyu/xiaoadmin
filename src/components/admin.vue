@@ -243,8 +243,10 @@
             adminName:'未登录'
           }
       },mounted(){
+
       this.adminName= Cookies.get('name');
       console.log(this.adminName)
+
 
     },
     methods:{

@@ -39,7 +39,6 @@
     },
     mounted:function () {
       var skId=this.$route.params.skId;
-alert(skId)
       axios.get("/api/findShopKindsById/"+skId).then(res=>{
         this.shopKinds=res.data;
       })

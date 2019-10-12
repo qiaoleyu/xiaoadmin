@@ -5,11 +5,11 @@
     <el-form label-width="100px" style="width: 600px;margin: auto;text-align: left">
 
       <el-form-item label="权限姓名：">
-        <el-input v-model="permission.pname" name="factory" style="width: 400px">
+        <el-input v-model="permission.pname" name="pname" style="width: 400px">
         </el-input>
       </el-form-item>
       <el-form-item label="权限信息:">
-        <el-input v-model="permission.pinfo" name="shopInfo" style="width: 400px">
+        <el-input v-model="permission.pinfo" name="pinfo" style="width: 400px">
         </el-input>
       </el-form-item>
       <el-form-item label="角色名称:">
@@ -39,7 +39,11 @@
       return{
         msg:"权限新增页面",
         roles:[],
-        permission:[],
+        permission:{
+          pname:'',
+          pinfo:'',
+          rid:''
+        },
       }
     },mounted(){
       var url = "api/findAllRoles";
@@ -49,6 +53,7 @@
     },
     methods:{
       addPermission:function () {
+          console.log(this.permission)
         axios.post("/api/addPermission",this.permission).then(res=>{
           if(res.data==1){
             this.$message({
@@ -56,6 +61,10 @@
               type: 'success'
             });
             this.$router.push('/permission');
+          }else if(res.data==0) {
+            this.$message.error('错了哦，您没有修改权限');
+            this.$router.push('/unauth')
+
           }else {
 //            alert("新增失败");
             this.$message.error('错了哦，新增失败');

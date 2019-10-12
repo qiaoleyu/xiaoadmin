@@ -118,7 +118,7 @@
               });
             }else if(res.data==0) {
               this.$message.error('错了哦，您没有权限');
-              this.$router.push('/anauth')
+              this.$router.push('/unauth')
             }else{
 //                alert("删除失败！")
               this.$message.error('错了哦，删除失败');
