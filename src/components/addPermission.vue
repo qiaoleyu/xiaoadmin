@@ -22,8 +22,8 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item style="height: 60px;width: 200px;margin: auto">
-        <el-button type="primary" plain @click="addPermission()">确认</el-button>
+      <el-form-item style="height: 60px;width: 200px;margin: auto;margin-left:150px ">
+        <el-button type="primary" round plain style="width: 100px" @click="addPermission()">确认</el-button>
       </el-form-item>
     </el-form>
   </div>

@@ -3,8 +3,8 @@
     <h1 style="font-weight: bolder">{{msg}}</h1>
     <br>
     <br>
-    <el-button type="primary" plain @click="login()" style="width: 100px">登录</el-button>
-    <el-button type="primary" plain @click="logout()" style="width: 100px">注销</el-button>
+    <el-button type="primary" round plain @click="login()" style="width: 100px">登录</el-button>
+    <el-button type="primary" round plain @click="logout()" style="width: 100px">注销</el-button>
   </div>
 </template>
 

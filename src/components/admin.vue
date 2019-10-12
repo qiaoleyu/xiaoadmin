@@ -176,6 +176,7 @@
 
 <style>
 
+
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;
@@ -220,8 +221,16 @@
   }
   body{
     font-size: 16px;
-  }
 
+  }
+  .note{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    overflow-y: auto;
+  }
 </style>
 
 

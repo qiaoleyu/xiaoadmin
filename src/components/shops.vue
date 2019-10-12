@@ -1,6 +1,5 @@
 <template>
   <div class="hello" style="width: 100%;margin: auto">
-    <h3>{{ msg }}</h3>
      <div style="width: 900px;;height: 80px;margin: auto">
        <div style="width: 200px;height: 20px;line-height: 20px;margin: auto">
          <h2 style="text-align: left">{{ msg }}</h2>
