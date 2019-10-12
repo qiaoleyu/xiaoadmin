@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h3>{{ msg }}</h3>
-    <el-button type="primary" round @click="toAdd()">增加角色</el-button>
+   <!-- <el-button type="primary" round @click="toAdd()">增加角色</el-button>-->
 
       <el-table align="center"
               :data="role"
@@ -76,7 +76,7 @@
 
         })
       },
-      toAdd:function () {
+      /*toAdd:function () {
 
         axios.get("api/unauth").then(res=>{
           if(res.data==1){
@@ -86,7 +86,7 @@
             this.$router.push('/unauth')
           }
         })
-      },
+      },*/
       update:function (id) {
 
         axios.get("api/unauth").then(res=>{

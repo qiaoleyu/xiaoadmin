@@ -31,7 +31,7 @@ export default {
   //name: 'Main',
   data () {
     return {
-      msg: '角色新增页面',
+      msg: '角色修改页面',
     role:{
        rid:'',
 

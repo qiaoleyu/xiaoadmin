@@ -1,7 +1,7 @@
 <template>
 
   <div class="hello">
-
+    <h3>{{ msg }}</h3>
     <el-form label-width="100px" style="width: 600px;margin: auto;text-align: left">
 
       <el-form-item label="商品名称:">
@@ -73,6 +73,7 @@
     components: {ElInput},
     data(){
       return{
+          msg:'商品新增',
         file:'',
         shop:{
             shopPic:'',

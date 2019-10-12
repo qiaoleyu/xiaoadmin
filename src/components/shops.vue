@@ -1,6 +1,6 @@
 <template>
   <div class="hello" style="width: 100%;margin: auto">
-
+    <h3>{{ msg }}</h3>
      <div style="width: 900px;;height: 80px;margin: auto">
        <!--<div style="float: left;width: 200px;height: 80px;line-height: 50px">-->
          <!--<h1 style="text-align: left">{{ msg }}</h1>-->
@@ -189,16 +189,15 @@
           axios.get("/api/deleteShops/"+shopId).then(res=>{
             if(res.data==1){
               this.queryShops();
+              this.$message({
+                type: 'success',
+                message: '删除成功!'
+              });
             }else if(res.data==0) {
               this.$router.push('/unauth')
             }
-
-
           })
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          });
+
         }).catch(() => {
           this.$message({
             type: 'info',
