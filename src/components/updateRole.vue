@@ -31,7 +31,7 @@ export default {
   //name: 'Main',
   data () {
     return {
-      msg: '角色新增页面',
+      msg: '角色修改页面',
     role:{
        rid:'',
 
@@ -61,9 +61,15 @@ export default {
        axios.post(url,this.role).then(res=>{
          //alert(res.data);
          if(res.data==1){
+           this.$message({
+             message: '恭喜你，修改成功',
+             type: 'success'
+           });
            this.$router.push("/role")
          }else {
-           alert("修改失败！")
+//           alert("修改失败！")
+           this.$message.error('错了哦，修改失败');
+
          }
 
        })

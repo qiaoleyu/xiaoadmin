@@ -61,6 +61,8 @@ export default {
        this.$router.push("/adminLogin")
      },
     logout:function () {
+      Cookies.remove('name'); // fail!
+      Cookies.remove('name',{path:'/'})
       this.$router.push("/")
     },
     handleSelect(key, keyPath) {
