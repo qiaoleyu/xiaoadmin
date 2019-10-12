@@ -1,7 +1,7 @@
 <template>
 
   <div class="hello">
-    <h1>{{msg}}</h1>
+    <h2 style="font-weight: 600">{{msg}}</h2>
     <el-form label-width="100px" style="width: 600px;margin: auto;text-align: left">
 
       <el-form-item label="权限姓名：">

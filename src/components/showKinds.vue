@@ -1,6 +1,7 @@
 <template>
-  <div  style="">
 
+  <div  style="">
+    <h2 style="width: 200px;height: 20px;line-height: 20px;float: left;margin-bottom: 20px">{{ msg }}</h2>
     <el-table :data="shopKinds" stripe style="width: 100%;">
       <el-table-column prop="skId" label="类别编号" width="100"> </el-table-column>
       <el-table-column prop="skName" label="类别名称" width="130"></el-table-column>

@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h3>{{ msg }}</h3>
+    <h2 style="font-weight: 600">{{ msg }}</h2>
 
     <el-button type="primary" round @click="toAdd()">新增管理员</el-button>
       <el-table align="center"

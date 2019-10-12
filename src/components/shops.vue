@@ -2,10 +2,12 @@
   <div class="hello" style="width: 100%;margin: auto">
 
      <div style="width: 900px;;height: 80px;margin: auto">
-       <!--<div style="float: left;width: 200px;height: 80px;line-height: 50px">-->
-         <!--<h1 style="text-align: left">{{ msg }}</h1>-->
-       <!--</div>-->
+       <div style="width: 200px;height: 20px;line-height: 20px;margin: auto">
+         <h2 style="text-align: left">{{ msg }}</h2>
+       </div>
+
        <div style="float: left;width: 900px;height: 80px;line-height: 90px">
+
        <template>
          <el-select v-model="value" placeholder="请选择">
            <el-option

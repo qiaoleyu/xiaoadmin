@@ -1,5 +1,5 @@
 <template>
-  <div class="hello" style="margin-top: 200px">
+  <div class="hello" style="margin-top: 200px" id="in">
     <h1 style="font-weight: bolder">{{msg}}</h1>
     <br>
     <br>
@@ -88,4 +88,9 @@ li {
 a {
   color: #42b983;
 }
+</style>
+<style>
+  body{
+    background-color: aqua;
+  }
 </style>

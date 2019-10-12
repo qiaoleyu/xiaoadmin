@@ -1,7 +1,7 @@
 <template>
 
   <div class="hello" style="float: left;width: 400px;text-align: left;margin-left: 40px">
-    <h3 style="height: 40px;line-height: 40px;margin-left: 100px">{{ msg }}</h3>
+    <h2 style="height: 40px;line-height: 40px;margin-left: 100px">{{ msg }}</h2>
 
     <el-form label-width="100px" style="width: 400px;margin-top: 20px;text-align: left;float: left">
       <el-form-item label="类别名称">

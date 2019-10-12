@@ -1,7 +1,7 @@
 <template>
 
   <div class="hello">
-
+    <h2 style="font-weight: 600">{{msg}}</h2>
     <el-form label-width="100px" style="width: 600px;margin: auto;text-align: left">
       <el-form-item label="商品名称:">
         <el-input class="arrow" name="shopName" v-model="shop.shopName" style="width: 500px"></el-input>

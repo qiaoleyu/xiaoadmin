@@ -1,9 +1,8 @@
 <template>
 
   <div class="hello">
-
     <el-form label-width="100px" style="width: 600px;margin: auto;text-align: left">
-
+      <h2 style="width: 200px;height: 20px;line-height: 20px;margin: auto;margin-bottom: 20px">{{ msg }}</h2>
       <el-form-item label="商品名称:">
         <el-input class="arrow" name="shopName" v-model="shop.shopName" style="width: 500px"></el-input>
       </el-form-item>
@@ -73,6 +72,7 @@
     components: {ElInput},
     data(){
       return{
+          msg:'商品添加页面',
         file:'',
         shop:{
             shopPic:'',

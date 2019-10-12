@@ -3,9 +3,8 @@
 
     <!--<h1>{{msg}}</h1>-->
     <!--<img src="./assets/logo1.jpg" style="width: 250px;height: 150px">-->
-    <keep-alive>
+
       <router-view/>
-    </keep-alive>
   </div>
 </template>
 
@@ -18,9 +17,6 @@ export default {
       msg:'Welcome to 后台管理页面'
     }
   },methods:{
-    activated: function() {
-      this.getCase()
-    },
   }
 
 }

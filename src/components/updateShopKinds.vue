@@ -1,6 +1,6 @@
 <template>
   <div class="hello" style="float: left;width: 400px;text-align: left;margin-left: 40px">
-    <h1 style="height: 40px;line-height: 40px;margin-left: 100px">{{ msg }}</h1>
+    <h2 style="height: 40px;line-height: 40px;margin-left: 100px;font-weight: 600">{{ msg }}</h2>
 
     <el-form label-width="100px" style="width: 400px">
       <el-input type="hidden" v-model="shopKinds.skId" name="skId"></el-input>

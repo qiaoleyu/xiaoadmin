@@ -1,7 +1,7 @@
 <template>
   <div class="hello" style="width: 100%;margin: auto">
 
-    <h1>{{ msg }}</h1>
+    <h2 style="font-weight: 600">{{ msg }}</h2>
     <el-button type="primary" round @click="insert()">增加权限</el-button>
 
     <el-table :data="permission" stripe style="width: 100%" align="center">

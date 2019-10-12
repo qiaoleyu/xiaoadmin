@@ -1,6 +1,6 @@
 <template>
   <div>
-  <h3>{{msg}}</h3>
+  <h2>{{msg}}</h2>
     <!--<div style="float: left;margin: auto">-->
     <el-button type="success" round plain style="width: 200px;margin-left: 10px" @click="show1()">笔记本|平板</el-button>
     <el-button type="success" round plain style="width: 200px"@click="show2()">出行|穿戴</el-button>

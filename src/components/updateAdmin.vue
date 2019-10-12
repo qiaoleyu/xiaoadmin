@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h3>{{ msg }}</h3>
+    <h2 style="font-weight: 600">{{ msg }}</h2>
 
     <form>
     <el-input placeholder="请输入管理员姓名" v-model="admin.aname" size="large" style="width: 450px">
