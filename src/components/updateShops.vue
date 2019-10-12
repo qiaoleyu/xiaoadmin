@@ -1,27 +1,32 @@
 <template>
 
   <div class="hello">
-    <div style="width: 600px;margin: auto;height: 60px;line-height: 40px">
-      <div style="width: 100px;margin: auto;float: left">商品小图:</div>
-      <div style="width: 400px;margin: auto;float: left"><input type="file" @change="getFile($event)"></div>
-      <div style="width: 100px;margin: auto;float: left"><el-button type="primary" round plain @click="upload()"  style="width: 100px">上传</el-button></div>
-    </div>
-
-    <div style="width: 600px;margin: auto;height: 60px;line-height: 40px">
-      <div style="width: 100px;margin: auto;float: left">商品大图:</div>
-      <div style="width: 400px;margin: auto;float: left"><input type="file" @change="getFile($event)"></div>
-      <div style="width: 100px;margin: auto;float: left"><el-button type="primary" round plain @click="upload2()" style="width: 100px">上传</el-button></div>
-    </div>
 
     <el-form label-width="100px" style="width: 600px;margin: auto;text-align: left">
       <el-form-item label="商品名称:">
         <el-input class="arrow" name="shopName" v-model="shop.shopName" style="width: 500px"></el-input>
       </el-form-item>
       <el-form-item label="商品小图:">
-        <img :src="shop.shopPic" v-model="shop.shopPic" name="shopPic" width="40" height="40" class="pic" />
+        <el-upload
+          class="avatar-uploader"
+          action="api/upload"
+          :show-file-list="false"
+          :on-success="handleAvatarSuccess"
+          :before-upload="beforeAvatarUpload">
+          <img v-if="shop.shopPic" :src="shop.shopPic" name="shopPic" width="80px" height="80px" class="avatar">
+          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+        </el-upload>
       </el-form-item>
       <el-form-item label="商品大图:">
-        <img :src="shop.shopBigPic" v-model="shop.shopBigPic" name="shop.shopBigPic" width="40" height="40" class="pic" />
+        <el-upload
+          class="avatar-uploader"
+          action="api/upload"
+          :show-file-list="false"
+          :on-success="AvatarSuccess"
+          :before-upload="beforeAvatarUpload">
+          <img v-if="shop.shopBigPic" :src="shop.shopBigPic" name="shopBigPic" width="80px" height="80px" class="avatar">
+          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+        </el-upload>
       </el-form-item>
       <el-form-item label="商品单价:">
         <el-input name="shopPrice" v-model="shop.shopPrice" style="width: 500px"></el-input>
@@ -99,39 +104,23 @@
           this.shopKinds = res.data;
         })
       },
-      getFile: function (event) {
-        this.file = event.target.files[0];
-        console.log(this.file);
+      handleAvatarSuccess(res, file) {
+        this.shop.shopPic = res;
       },
-      upload:function () {
-        let formData = new FormData();
-        formData.append("file", this.file);
-        axios.post("/api/upload",formData).then(res=>{
-          //window.location.reload();
-          console.log(res.data)
-          if(res.data!="fail"){
-            this.shop.shopPic=res.data;
-//            alert(this.shop.shopPic)
-          }
-          else {
-            alert(res.data);
-          }
-        })
+      AvatarSuccess(res, file) {
+        this.shop.shopBigPic = res;
       },
-      upload2:function () {
-        let formData = new FormData();
-        formData.append("file", this.file);
-        axios.post("/api/upload",formData).then(res=>{
-          //window.location.reload();
-          console.log(res.data)
-          if(res.data!="fail"){
-            this.shop.shopBigPic=res.data;
-//            alert(this.shop.shopBigPic)
-          }
-          else {
-            alert(res.data);
-          }
-        })
+      beforeAvatarUpload(file) {
+        const isJPG = file.type === 'image/jpeg';
+        const isLt2M = file.size / 1024 / 1024 < 2;
+
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M;
       },
       updateShops:function () {
         axios.post("/api/updateShops",this.shop).then(res=>{
