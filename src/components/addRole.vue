@@ -53,7 +53,7 @@ export default {
            });
            this.$router.push("/role")
          }else if(res.data==0) {
-           this.$message.error('错了哦，您没有修改权限');
+           this.$message.error('错了哦，您没有新增角色的权限');
            this.$router.push('/unauth')
 
          }else {

@@ -59,7 +59,7 @@ export default {
            });
            this.$router.push("/administrator")
          }else if(res.data==0) {
-           this.$message.error('错了哦，您没有修改权限');
+           this.$message.error('错了哦，您没有新增管理员的权限');
            this.$router.push('/unauth')
 
          }else {

@@ -62,7 +62,7 @@
             });
             this.$router.push('/permission');
           }else if(res.data==0) {
-            this.$message.error('错了哦，您没有修改权限');
+            this.$message.error('错了哦，您没有新增权限的权限');
             this.$router.push('/unauth')
 
           }else {

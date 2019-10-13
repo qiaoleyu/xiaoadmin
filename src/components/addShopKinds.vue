@@ -38,6 +38,9 @@
               type: 'success'
             });
             this.$router.push('/showKinds');
+          }else if(res.data==0) {
+            this.$message.error('错了哦，您没有新增商品类别的权限');
+            this.$router.push('/unauth')
           }
           else {
 //            alert(res.data);
