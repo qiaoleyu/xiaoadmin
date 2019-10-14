@@ -2,7 +2,7 @@
   <div class="hello" style="width: 100%;margin: auto">
 
     <h2 style="font-weight: 600">{{ msg }}</h2>
-    <el-button type="primary" round @click="insert()">增加权限</el-button>
+    <el-button type="primary" round @click="insert()">新增权限</el-button>
 
     <el-table :data="permission" stripe style="width: 100%" align="center">
 
