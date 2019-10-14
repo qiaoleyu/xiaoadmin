@@ -55,7 +55,7 @@ export default new Router({
         {path: '/addShopKinds', name: '添加类别', component: addShopKinds},
         {path: '/updateShopKinds/:skId', name: '修改类别 ', component: updateShopKinds},
         {path: '/unauth', name: 'unauth', component: unauth},
-        {path: '/saleShow', name: 'saleShow', component: saleShow}
+        {path: '/saleShow', name: 'saleShow', component: saleShow},
       ]
     }
   ]

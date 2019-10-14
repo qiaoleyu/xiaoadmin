@@ -150,6 +150,17 @@
                 <el-menu-item index="/addShopKinds" class="el-icon-circle-plus">添加</el-menu-item>
                 <el-menu-item index="/updateShopKinds" class="el-icon-edit" disabled>修改</el-menu-item>
               </el-submenu>
+              <el-submenu index="6">
+                <template slot="title">
+                  <i class="el-icon-menu"></i>
+                  <span slot="title">用户管理</span>
+                </template>
+                <!--<el-menu-item-group>-->
+                <!--<span slot="title">类别管理</span>-->
+                <el-menu-item index="/userManager" class="el-icon-document">查看</el-menu-item>
+                <!--<el-menu-item index="/addShopKinds" class="el-icon-circle-plus">添加</el-menu-item>-->
+                <el-menu-item index="/updateShopKinds" class="el-icon-edit" disabled>修改</el-menu-item>
+              </el-submenu>
             </el-menu>
           </el-aside>
           <el-main>
