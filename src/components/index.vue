@@ -89,8 +89,9 @@ a {
   color: #42b983;
 }
 </style>
+
 <style>
   body{
-    background-color: aqua;
+    background-color: aquamarine;
   }
 </style>
