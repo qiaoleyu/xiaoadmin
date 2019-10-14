@@ -207,7 +207,11 @@
                   type: 'success'
                 });
                 this.$router.push('/shops');
-              } else {
+              } else if (res.data == 0) {
+                this.$message.error('错了哦，您没有修改权限');
+                this.$router.push('/unauth')
+
+              }else {
                 //            alert("新增失败");
                 this.$message.error('错了哦，新增失败');
 

@@ -262,7 +262,7 @@
       logout:function () {
 //          alert()
         Cookies.remove('name'); // fail!
-        Cookies.remove('name',{path:'/admin'})
+        Cookies.remove('name',{path:'/'})
 //       this.adminName='未登录'
         this.$router.push("/adminLogin")
       },
