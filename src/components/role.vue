@@ -33,8 +33,8 @@
                        width="250">
         <template slot-scope="role">
 
-          <el-button type="danger" icon="el-icon-delete" circle @click="del(role.row.rid)"></el-button>
-          <el-button type="primary" icon="el-icon-edit" circle @click="update(role.row.rid)"></el-button>
+          <el-button type="danger" icon="el-icon-delete" circle @click="del(role.row.rid)" v-if="role.row.rid!=1"></el-button>
+          <el-button type="primary" icon="el-icon-edit" circle @click="update(role.row.rid)" v-if="role.row.rid!=1"></el-button>
         </template>
 
       </el-table-column>
