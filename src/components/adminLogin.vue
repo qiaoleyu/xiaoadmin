@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 150px">
+  <div style="padding-top: 150px;background-color: aquamarine;" class="note" >
     <h1 style="font-weight: bolder;margin-bottom: 30px">{{ msg }}</h1>
     <br>
     <el-form  :model="admin" status-icon :rules="rules" ref="admin" label-width="100px" style="width: 40%;margin: auto" >
@@ -18,9 +18,9 @@
   </div>
 </template>
 <style>
-  body{
-    background-color: aquamarine;
-  }
+  /*body{*/
+    /*background-color: aquamarine;*/
+  /*}*/
 
 
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div style="width: 100%;margin: auto">
-    <span style="font-size: 36px;font-weight: bolder">{{msg}}</span>
+    <span style="font-size: 36px;font-weight: bolder" >{{msg}}</span>
+    <!--<el-image src="http://pxx4c7852.bkt.clouddn.com/url1.jpg" style="width: 100%"></el-image>-->
     <br>
     <br>
     <el-container>
@@ -232,16 +233,27 @@
     overflow-y: auto;
   }
 </style>
-
+<style scoped>
+  .note{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    overflow-y: auto;
+  }
+</style>
 
 <script>
   import axios from 'axios'
   import ElFooter from "../../node_modules/element-ui/packages/footer/src/main";
   import ElRadioButton from "../../node_modules/element-ui/packages/radio/src/radio-button";
   import Cookies from 'js-cookie'
+  import ElImage from "../../node_modules/element-ui/packages/image/src/main";
 
   export default{
     components: {
+      ElImage,
       ElRadioButton,
       ElFooter},
     data(){
