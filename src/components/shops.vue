@@ -36,7 +36,7 @@
      </div>
 
 
-    <el-button type="primary" round @click="toinsert()">增加权限</el-button>
+    <el-button type="primary" round @click="toinsert()">新增商品</el-button>
     <el-table :data="shops" stripe style="width: 100%;">
       <el-table-column prop="shopId" label="编号" width="60"> </el-table-column>
 
